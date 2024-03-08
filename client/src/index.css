@@ -1,0 +1,154 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
+:root {
+	--color-white: #fff;
+	--color-light: rgba(255, 255, 255, 0.6);
+	--transition: all 0.4s ease-in-out;
+	--container-width-lg: 75%;
+	--container-width-md: 86%;
+	--container-width-sm: 90%;
+
+	--color-bg: #1e1e26;
+	--color-bg-variant: #2c2c33;
+	--color-bg-variant-2: #3a3a40;
+	--color-primary: #ffcc66;
+	--color-primary-variant: rgba(255, 204, 102, 0.5);
+	--color-danger: #ff6666;
+	--color-danger-variant: rgba(255, 102, 102, 0.5);
+	--color-success: #66ff66;
+	--color-success-variant: rgba(102, 255, 102, 0.5);
+	--color-warning: #ffcc66;
+	--color-warning-variant: rgba(255, 204, 102, 0.5);
+	--color-info: #66ccff;
+	--color-info-variant: rgba(102, 204, 255, 0.5);
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 90%;
+	color: var(--color-white);
+	line-height: 1.7;
+	background: var(--color-bg);
+	user-select: none;
+	@media screen and (max-width: 600px) {
+		font-size: 85%;
+	}
+	@media screen and (max-width: 400px) {
+		font-size: 80%;
+	}
+}
+
+/* Scrollbar CSS */
+
+::-webkit-scrollbar {
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 0.5rem;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--color-primary);
+	border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: var(--color-primary-variant);
+}
+
+::-webkit-scrollbar-corner {
+	background-color: var(--color-bg);
+}
+
+/* Global CSS */
+
+.container {
+	width: calc(100% - 2rem);
+	margin: 6rem 1rem 1rem 1rem;
+	border-radius: 1rem;
+	padding: 1rem;
+	height: calc(100vh - 7rem);
+	background: var(--color-bg-variant);
+	opacity: 0.7;
+	filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+	transition: var(--transition);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	overflow-y: scroll;
+}
+
+.container h1 {
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 20px;
+	color: var(--color-primary);
+}
+
+.btn {
+	width: 100%;
+	font:
+		1em Comic Sans MS,
+		Comic Sans,
+		cursive;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	transition: var(--transition);
+}
+
+.btn-primary {
+	background-color: var(--color-primary);
+	color: var(--color-bg);
+}
+
+.btn-primary:hover {
+	background-color: var(--color-primary-variant);
+}
+
+.btn-danger {
+	background-color: red;
+	color: var(--color-bg);
+}
+
+.btn-danger:hover {
+	background-color: var(--color-primary-variant);
+}
+
+.btn-primary-inverse {
+	background-color: var(--color-bg);
+	color: var(--color-primary);
+}
+
+.btn-primary-inverse:hover {
+	background-color: var(--color-bg-variant);
+}
+
+/* Modal */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 15;
+	backdrop-filter: blur(1.5px);
+}

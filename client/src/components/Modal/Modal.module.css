@@ -1,0 +1,27 @@
+.modal {
+	background-color: var(--color-bg-variant);
+	padding: 10px 20px;
+	border-radius: 0.5rem;
+	width: 100%;
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal p {
+	font-size: 16px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.modal__buttons {
+	margin-top: 10px;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 10px;
+}

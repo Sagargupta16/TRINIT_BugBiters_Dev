@@ -1,0 +1,131 @@
+.profile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	width: 80%;
+	transition: all 0.5s;
+	height: 100%;
+	overflow-y: scroll;
+	border: 5px solid var(--color-bg);
+	border-radius: 10px;
+	box-shadow: 0 0 10px var(--color-bg);
+	background: var(--color-bg-variant);
+}
+
+.profile-items {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: calc(100% - 20px);
+	justify-content: space-around;
+	gap: 20px;
+	padding: 20px 0 20px 5px;
+	border-radius: 10px;
+	background: var(--color-bg-variant);
+}
+
+.profile-buttons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	justify-content: space-around;
+	gap: 20px;
+	position: overlay;
+}
+
+.item-group {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	background: var(--color-bg);
+	padding: 20px;
+	border-radius: 10px;
+	width: 100%;
+	height: 100%;
+	transition: all 0.5s;
+}
+
+.item-group h2 {
+	color: var(--color-primary);
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+}
+
+.item-subgroup {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 5px;
+	width: 100%;
+}
+
+.item-subgroup h3 {
+	color: var(--color-primary);
+	font-size: 1.2rem;
+	background: var(--color-bg-variant);
+	height: 100%;
+	width: 10%;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	border-radius: 10px;
+	filter: drop-shadow(0px 0px 1px var(--color-bg-variant));
+}
+
+.item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+	justify-content: space-between;
+	padding: 10px;
+	border-radius: 10px;
+	background: var(--color-bg-variant);
+	filter: drop-shadow(0px 0px 1px var(--color-bg-variant));
+}
+
+.item label {
+	color: var(--color-primary);
+	font-size: 1.2rem;
+	width: 15%;
+}
+
+.item input {
+	padding: 10px;
+	border-radius: 5px;
+	width: 100%;
+	filter: drop-shadow(0px 0px 2px var(--color-bg));
+	background: var(--color-bg-variant-2);
+	color: var(--color-white);
+}
+
+.item input:focus {
+	outline: none;
+	border: 1px solid var(--color-primary-variant);
+}
+
+.item input:disabled {
+	background: var(--color-bg);
+	color: var(--color-light);
+}
+
+.item button {
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	background: var(--color-primary);
+	color: var(--color-bg);
+	font-size: 1.2rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.item button:hover {
+	background: var(--color-primary-variant);
+}

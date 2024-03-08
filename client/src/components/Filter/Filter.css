@@ -1,0 +1,68 @@
+.filter {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+}
+
+.filter h3 {
+	font-size: 1.5rem;
+	position: sticky;
+	top: 0;
+	background: var(--color-bg);
+	padding: 10px;
+	width: 100%;
+	text-align: center;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.filter__item {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: 100%;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	border-radius: 0.5rem;
+	padding: 10px;
+	background: var(--color-bg);
+}
+
+.filter__item__label {
+	font-size: 1.1rem;
+	align-self: center;
+}
+
+.filter__item__values {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	transition: all 0.3s ease-in-out;
+}
+
+.filter__item__value {
+	padding: 5px;
+	gap: 5px;
+	width: 100%;
+	border-radius: 0.5rem;
+	border: 1px solid var(--color-bg);
+	background: var(--color-bg-variant);
+	color: var(--color-white);
+	cursor: pointer;
+	text-align: center;
+	transition: all 0.3s ease-in-out;
+}
+
+.filter__item__value:hover {
+	border: 1px solid var(--color-primary);
+}
+
+.filter__item__value.active {
+	border: 1px solid var(--color-primary);
+}

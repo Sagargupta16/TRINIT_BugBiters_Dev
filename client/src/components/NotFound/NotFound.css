@@ -1,0 +1,22 @@
+.not-found {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	font-size: 3rem;
+	font-weight: bold;
+	color: #f44336;
+	text-align: center;
+	background-color: var(--color-bg);
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	line-height: 1.5;
+	text-shadow: 0 0 0.25rem #f44336;
+	flex-direction: column;
+}
+
+.not-found p {
+	margin-top: 0.5em;
+}
