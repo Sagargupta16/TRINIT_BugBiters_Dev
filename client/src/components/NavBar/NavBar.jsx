@@ -10,6 +10,7 @@ import classes from './Navbar.module.css';
 const NavBar = () => {
 	const [navItems, setNavItems] = useState([]);
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 	const navigate = useNavigate();
 	const token = localStorage.getItem('token');
 
@@ -58,8 +59,6 @@ const NavBar = () => {
 		}
 	}, [isAuthenticated]);
 
-	const [isModalOpen, setIsModalOpen] = useState(false);
-
 	const onSignOutClick = () => {
 		setIsModalOpen(true);
 	};
@@ -78,7 +77,7 @@ const NavBar = () => {
 		<>
 			<nav className={classes.nav}>
 				<NavLink to="/" aria-label="Home" className={classes['nav__logo']}>
-					<span>LinguaConnect</span>
+					<span>Lingua Connect</span>
 				</NavLink>
 				<div className={classes['nav__list']}>
 					{navItems.map((item) => (

@@ -26,6 +26,8 @@ exports.postSignup = async (req, res) => {
 		const hashedPassword = await bcrypt.hash(user.password, Number(process.env.JWT_SALT_ROUNDS));
 		user.password = hashedPassword;
 
+		console.log(user);
+
 		await new User(user).save();
 		logger.info(`New user created: ${user.email}`);
 
