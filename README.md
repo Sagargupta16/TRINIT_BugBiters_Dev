@@ -1,6 +1,9 @@
 # Ligua Connect
 
-This Project is a MERN stack application that is designed to help students and professionals to connect with each other and share their experiences and knowledge. The application will allow users to create an account, log in, and create posts to share their experiences and knowledge with others. Users will also be able to view and interact with posts created by other users. The application will be built using the MERN stack, which includes MongoDB, Express, React, and Node.js.
+This Project is a MERN stack application that is designed to help students and professionals to connect with each other and share their experiences
+and knowledge. The application will allow users to create an account, log in, and create posts to share their experiences and knowledge with others.
+Users will also be able to view and interact with posts created by other users. The application will be built using the MERN stack, which includes
+MongoDB, Express, React, and Node.js.
 
 ## File Structure
 

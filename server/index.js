@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes.js');
-const userRoutes = require('./routes/userRoutes.js');
+const studentRoutes = require('./routes/studentRoutes.js');
+const tutorRoutes = require('./routes/tutorRoutes.js');
+const classRoutes = require('./routes/classRoutes.js');
+const flashcardRoutes = require('./routes/flashcardRoutes.js');
 const { authenticateUser } = require('./middleware/authMiddleware.js');
 
 dotenv.config();
@@ -25,11 +28,15 @@ app.use(cors());
 // Middleware to hide version information
 app.disable('x-powered-by');
 
-// Use the authRoutes only once
 app.use('/auth', authRoutes);
 
-// Use the userRoutes only once
-app.use('/users', userRoutes);
+app.use('/student', studentRoutes);
+
+app.use('/tutor', tutorRoutes);
+
+app.use('/class', classRoutes);
+
+app.use('/flashcard', flashcardRoutes);
 
 app.get('/token-check', authenticateUser, (req, res) => {
 	try {
