@@ -75,14 +75,11 @@ html {
 /* Global CSS */
 
 .container {
-	width: calc(100% - 1rem);
-	margin: 5.5rem 0.5rem 0.5rem 0.5rem;
-	/* border-radius: 1rem; */
+	width: 100%;
+	margin: 5.5rem 0 0 0;
 	padding: 1rem;
 	height: calc(100vh - 6rem);
-	/* background: var(--color-bg-variant); */
 	opacity: 0.7;
-	filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
 	transition: var(--transition);
 	display: flex;
 	flex-direction: column;

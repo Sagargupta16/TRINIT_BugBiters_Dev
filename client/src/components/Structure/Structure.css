@@ -4,7 +4,7 @@
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	height: calc(100% - 61px);
+	height: 100%;
 	gap: 10px;
 }
 
@@ -15,6 +15,7 @@
 	gap: 10px;
 	border-radius: 1rem;
 	background: var(--color-bg-variant);
+	opacity: 0.7;
 	box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
 	height: 100%;
 	overflow-y: auto;
