@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const classSchema = new mongoose.Schema(
 	{
 		language: { type: String, required: true },
-		tutor: { type: String, required: true },
+		tutor: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Tutor',
+			required: true
+		},
 		startTime: { type: Date, required: true },
 		duration: { type: Number, required: true },
 		price: { type: Number, required: true },

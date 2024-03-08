@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Class = require('./Class');
 
 const tutorSchema = new mongoose.Schema(
 	{
@@ -15,7 +14,7 @@ const tutorSchema = new mongoose.Schema(
 		classes: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
-				ref: Class
+				ref: 'Class'
 			}
 		],
 		slotsAvailability: [

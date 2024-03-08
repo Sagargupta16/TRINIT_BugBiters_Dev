@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const Flashcard = require('./Flashcard');
-const Class = require('./Class');
 
 const studentSchema = new mongoose.Schema(
 	{
@@ -14,13 +12,15 @@ const studentSchema = new mongoose.Schema(
 		classes: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
-				ref: Class
+				ref: 'Class',
+				default: []
 			}
 		],
 		flashcards: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
-				ref: Flashcard
+				ref: 'Flashcard',
+				default: []
 			}
 		]
 	},
