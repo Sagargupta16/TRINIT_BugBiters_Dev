@@ -32,7 +32,8 @@ const AuthenticationForm = () => {
 			: {
 					name,
 					email: email.toLowerCase(),
-					password
+					password,
+					role: e.target.role.value
 				};
 
 		try {
@@ -91,6 +92,14 @@ const AuthenticationForm = () => {
 					<input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} value={name} />
 				</div>
 				{getEmailPassInput()}
+				<div className={classes['auth-form__item']}>
+					<label htmlFor='role'>Role</label>
+					<select name='role' id='role'>
+						<option value='student'>tutor</option>
+						<option value='teacher'>student</option>
+					</select>
+				</div>
+
 
 				<button type="submit" className={classes.btn}>
 					Sign Up
