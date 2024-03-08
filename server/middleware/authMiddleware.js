@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
 const logger = require('../utils/logger');
+const Student = require('../models/Student');
+const Tutor = require('../models/Tutor');
 
 const authenticateUser = async (req, res, next) => {
 	try {
@@ -13,7 +14,7 @@ const authenticateUser = async (req, res, next) => {
 
 		let user;
 		try {
-			user = await User.findOne({ _id: decoded.id });
+			user = (await Student.findOne({ _id: decoded.id })) || (await Tutor.findOne({ _id: decoded.id }));
 		} catch (error) {
 			console.error('User lookup error:', error.message);
 			throw new Error('Error looking up user');
