@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const Tutor = require('../models/Tutor');
+const Student = require('../models/Student');
 const logger = require('../utils/logger');
 const Otp = require('../models/Otp');
 const nodemailer = require('nodemailer');
@@ -11,7 +12,7 @@ exports.postSignup = async (req, res) => {
 		const user = req.body;
 		if (!user.name || !user.email || !user.password) return res.status(400).json({ errors: ['Name, Email and Password required'] });
 
-		const existingUser = await User.findOne({ email: user.email.toString() });
+		const existingUser = (await Student.findOne({ email: user.email })) || (await Tutor.findOne({ email: user.email }));
 		if (existingUser)
 			return res.status(400).json({
 				errors: ['User with the same email already exists']
@@ -26,9 +27,12 @@ exports.postSignup = async (req, res) => {
 		const hashedPassword = await bcrypt.hash(user.password, Number(process.env.JWT_SALT_ROUNDS));
 		user.password = hashedPassword;
 
-		await new User(user).save();
+		if (user.role === 'tutor') {
+			await new Tutor(user).save();
+		} else {
+			await new Student(user).save();
+		}
 		logger.info(`New user created: ${user.email}`);
-
 		res.status(201).json({
 			messages: ['User created successfully']
 		});
@@ -44,7 +48,7 @@ exports.getLogin = async (req, res) => {
 
 		if (!email || !password) return res.status(400).json({ status: false, errors: ['Email and Password required'] });
 
-		const user = await User.findOne({ email: email.toString() });
+		const user = (await Student.findOne({ email: email.toString() })) || (await Tutor.findOne({ email: email.toString() }));
 		if (!user) return res.status(401).json({ status: false, errors: ['User Not Found'] });
 
 		const passwordMatch = await bcrypt.compare(password, user.password);
@@ -54,7 +58,8 @@ exports.getLogin = async (req, res) => {
 			{
 				id: user._id,
 				name: user.name,
-				email: user.email
+				email: user.email,
+				role: user.role
 			},
 			process.env.JWT_SECRET,
 			{ expiresIn: '7d' }
@@ -79,7 +84,7 @@ exports.postVerifyEmail = async (req, res) => {
 		// Rest of the code remains unchanged
 		if (!email) return res.status(400).json({ status: false, errors: ['Email required'] });
 
-		const user = await User.findOne({ email: email.toString() });
+		const user = (await Student.findOne({ email: email.toString() })) || (await Tutor.findOne({ email: email.toString() }));
 		if (!user) return res.status(401).json({ status: false, errors: ['User Not Found'] });
 
 		const existingOtp = await Otp.findOne({ email: email.toString() });
@@ -128,7 +133,7 @@ exports.postVerifyOTP = async (req, res) => {
 
 		if (!email || !otp) return res.status(400).json({ status: false, errors: ['Email and OTP required'] });
 
-		const user = await User.findOne({ email: email.toString() });
+		const user = (await Student.findOne({ email })) || (await Tutor.findOne({ email }));
 		if (!user) return res.status(401).json({ status: false, errors: ['User Not Found'] });
 
 		const existingOtp = await Otp.findOne({ email: email.toString() });
@@ -158,7 +163,7 @@ exports.postResetPassword = async (req, res) => {
 		const { email, otp, newPassword } = req.body;
 		if (!email || !newPassword) return res.status(400).json({ status: false, errors: ['Email and Password required'] });
 
-		const user = await User.findOne({ email: email.toString() });
+		const user = (await Student.findOne({ email })) || (await Tutor.findOne({ email }));
 		if (!user) return res.status(401).json({ status: false, errors: ['User Not Found'] });
 
 		const existing = await Otp.findOne({ email: email.toString() });
