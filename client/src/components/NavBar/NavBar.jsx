@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
-import { FaHome, FaSignInAlt } from 'react-icons/fa';
+import { FaHome, FaSignInAlt, FaVideo } from 'react-icons/fa';
 import { PiSignOutBold } from 'react-icons/pi';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { checkToken } from '../../api/tokenCheckApi';
@@ -45,6 +45,11 @@ const NavBar = () => {
 					to: 'profile',
 					label: 'Profile',
 					icon: <CgProfile />
+				},
+				{
+					to: 'VideoCall',
+					label: 'Video Call',
+					icon: <FaVideo />
 				}
 			]);
 		} else {

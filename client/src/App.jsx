@@ -6,6 +6,8 @@ import NotFound from './components/NotFound/NotFound';
 import Authentication from './pages/Auth/Authentication';
 import Home from './pages/Home/Home';
 import Profile from './pages/Profile/Profile';
+import Meet from './pages/VideoCall/Meet';
+import VideoCall from './pages/VideoCall/VideoCall';
 import { checkAuthAction, getAuthToken } from './utils/auth';
 
 const App = () => {
@@ -26,10 +28,19 @@ const App = () => {
 					loader: checkAuthAction
 				},
 				{
+					path: 'VideoCall',
+					element: <VideoCall />,
+					loader: checkAuthAction
+				},
+				{
 					path: 'auth',
 					element: <Authentication />
 				}
 			]
+		},
+		{
+			path: 'room/:roomId',
+			element: <Meet />
 		},
 		{
 			path: '*',
