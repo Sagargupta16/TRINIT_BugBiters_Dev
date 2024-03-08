@@ -54,13 +54,13 @@ const AuthenticationForm = () => {
 		return (
 			<>
 				<div className={classes['auth-form__item']}>
-					<label htmlFor="email">Email</label>
+					{/* <label htmlFor="email">Email</label> */}
 					<div className={classes['input-container']}>
 						<input type="text" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} value={email} />
 					</div>
 				</div>
 				<div className={classes['auth-form__item']}>
-					<label htmlFor="password">Password</label>
+					{/* <label htmlFor="password">Password</label> */}
 					<div className={classes['input-container']}>
 						<input type={showPassword ? 'text' : 'password'} placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
 						<button type="button" className={classes['password-toggle']} onClick={() => setShowPassword(!showPassword)}>
@@ -88,18 +88,20 @@ const AuthenticationForm = () => {
 		return (
 			<>
 				<div className={classes['auth-form__item']}>
-					<label htmlFor="name">Name</label>
+					{/* <label htmlFor="name">Name</label> */}
 					<input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} value={name} />
 				</div>
 				{getEmailPassInput()}
 				<div className={classes['auth-form__item']}>
-					<label htmlFor='role'>Role</label>
-					<select name='role' id='role'>
-						<option value='student'>tutor</option>
-						<option value='teacher'>student</option>
+					{/* <label htmlFor="role">Role</label> */}
+					<select name="role" id="role">
+						<option value="" disabled>
+							Select Role
+						</option>
+						<option value="tutor">Tutor</option>
+						<option value="student">Student</option>
 					</select>
 				</div>
-
 
 				<button type="submit" className={classes.btn}>
 					Sign Up

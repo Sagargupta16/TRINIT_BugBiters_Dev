@@ -85,13 +85,13 @@ Make sure you have the following installed on your machine:
 2. Clone the repository:
 
    ```bash
-   git clone https://github.com/Sagargupta16/My_Journey.git
+   git clone https://github.com/Sagargupta16/TRINIT_BugBiters_Dev.git
    ```
 
 3. Navigate to the project directory:
 
    ```bash
-   cd my_journey
+   cd TRINIT_BugBiters_Dev
    ```
 
 4. Install the project dependencies:

@@ -7,7 +7,7 @@
 	justify-content: center;
 	border-radius: 0.5rem;
 	padding: 1rem 2rem;
-	background: var(--color-bg);
+	background: var(--color-bg-variant);
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 	transition: var(--transition);
 }
@@ -49,9 +49,8 @@
 	gap: 1rem;
 	align-items: center;
 	justify-content: space-between;
-	background-color: var(--color-bg-variant);
+	background-color: var(--color-bg);
 	border-radius: 0.5rem;
-	padding: 0.5rem;
 }
 
 .auth-form__item label {
@@ -61,9 +60,10 @@
 }
 
 .auth-form__item input,
+.auth-form__item select,
 .input-container input {
 	width: 100%;
-	padding: 0.5rem;
+	padding: 0.8rem;
 	border-radius: 0.5rem;
 	background: var(--color-bg);
 	color: var(--color-white);
