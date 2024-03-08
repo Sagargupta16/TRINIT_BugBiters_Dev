@@ -27,8 +27,6 @@ exports.postSignup = async (req, res) => {
 		const hashedPassword = await bcrypt.hash(user.password, Number(process.env.JWT_SALT_ROUNDS));
 		user.password = hashedPassword;
 
-
-		await new User(user).save();
 		if (user.role === 'tutor') {
 			await new Tutor(user).save();
 		} else {
