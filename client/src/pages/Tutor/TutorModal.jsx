@@ -59,7 +59,7 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
 
             <div className="modal__body">
               <div className="upcoming_classes">
-                <h3>Upcoming Classes</h3>
+                <span className="logo-badge">Upcoming language</span>
                 <div className="upcoming_classes__list">
                   <div className="upcoming_class">
                     {tutor.classes.map((cls, index) => {
@@ -76,8 +76,7 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
                             <div className="upcoming__actions">
                               <button
                                 className="btn"
-                                onClick={() => onhandleBook("class", cls)}
-                              >
+                                onClick={() => onhandleBook("class", cls)}>
                                 Book
                               </button>
                             </div>
@@ -89,7 +88,7 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
                 </div>
               </div>
               <div className="available-slots">
-                <h3>Available Slots</h3>
+                <span className="logo-badge">Available Slots</span>
                 <div className="slots__list">
                   <div className="slot">
                     {tutor.slotsAvailability.map((slot, index) => {
@@ -108,9 +107,8 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
                             <div className="slot__actions">
                               <button
                                 className="btn"
-                                onClick={() => onhandleBook("slot", slot)}
-                              >\
-                                Book
+                                onClick={() => onhandleBook("slot", slot)}>
+                                \ Book
                               </button>
                             </div>
                           </div>

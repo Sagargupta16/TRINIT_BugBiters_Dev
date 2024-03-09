@@ -13,11 +13,12 @@
   font-size: 1.5rem;
   position: sticky;
   top: 0;
-  background: var(--color-bg);
+  border-radius: 1rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   padding: 10px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .filter__item {
@@ -25,15 +26,19 @@
   flex-direction: column;
   gap: 10px;
   width: 100%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   border-radius: 0.5rem;
   padding: 10px;
-  background: var(--color-bg);
 }
 
 .filter__item__label {
   font-size: 1.1rem;
+  width: 100%;
+  background-color: var(--color-primary);
+  padding: 0.5rem;
+  color: var(--color-white);
+  border-radius: 0.5rem;
   align-self: center;
+  text-align: center;
 }
 
 .filter__item__values {
@@ -53,8 +58,7 @@
   height: 3rem;
   border-radius: 0.5rem;
   border: 1px solid var(--color-bg);
-  background: var(--color-bg-variant);
-  color: var(--color-white);
+  background: var(--color-bg);
   cursor: pointer;
   text-align: center;
   transition: all 0.3s ease-in-out;
