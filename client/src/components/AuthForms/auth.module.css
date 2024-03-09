@@ -1,170 +1,171 @@
 .auth-form {
-	width: 60%;
-	max-width: 500px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	border-radius: 0.5rem;
-	padding: 1rem 2rem;
-	background: var(--color-bg-variant);
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-	transition: var(--transition);
+  width: 60%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--color-bg-variant);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  transition: var(--transition);
 }
 
 .auth-form h1 {
-	font-size: 2rem;
-	color: var(--color-primary);
+  font-size: 2rem;
+  color: var(--color-primary);
 }
 
 .auth-form form {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }
 
 .auth-form__head2 {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .auth-form__head2 h2 {
-	font-size: 1.5rem;
-	color: var(--color-primary-variant);
+  font-size: 1.5rem;
+  color: var(--color-primary-variant);
 }
 
 .auth-form__head2 p {
-	font-size: 1rem;
-	color: var(--color-light);
+  font-size: 1rem;
+  color: var(--color-light);
 }
 
 .auth-form__item {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	gap: 1rem;
-	align-items: center;
-	justify-content: space-between;
-	background-color: var(--color-bg);
-	border-radius: 0.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-bg);
+  border-radius: 0.5rem;
 }
 
 .auth-form__item label {
-	color: var(--color-light);
-	font-size: 1rem;
-	width: 20%;
+  color: var(--color-light);
+  font-size: 1rem;
+  width: 20%;
 }
 
 .auth-form__item input,
 .auth-form__item select,
 .input-container input {
-	width: 100%;
-	padding: 0.8rem;
-	border-radius: 0.5rem;
-	background: var(--color-bg);
-	color: var(--color-white);
-	font-size: 1rem;
-	transition: var(--transition);
-	border: 1px solid transparent;
-	outline: none;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  background: #e8f0fe;
+  font-size: 1rem;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  outline: none;
 }
 
 .auth-form__item input:focus {
-	border-color: var(--color-primary-variant);
+  border-color: var(--color-primary);
 }
 
 .auth-form form .btn {
-	width: 100%;
-	padding: 1rem;
-	border-radius: 0.5rem;
-	background: var(--color-primary);
-	color: var(--color-bg);
-	font-size: 1rem;
-	transition: var(--transition);
-	cursor: pointer;
-	border: 1px solid transparent;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  font-size: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .auth-form form .btn:hover {
-	background: var(--color-primary-variant);
-	border: 1px solid var(--color-primary);
+  background: var(--color-primary-variant);
+  color: var(--color-white);
+  border: 1px solid var(--color-primary-variant);
 }
 
 .auth-form__item_btn {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	gap: 1rem;
-	align-items: center;
-	justify-content: space-between;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .auth-form__footer {
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .auth-form__footer a {
-	color: var(--color-primary);
-	transition: var(--transition);
-	width: 50%;
-	text-align: center;
+  color: var(--color-primary);
+  transition: var(--transition);
+  width: 50%;
+  text-align: center;
+  font-weight: 700;
 }
 
 .auth-form__footer a:hover {
-	color: var(--color-primary-variant);
+  color: var(--color-primary-variant);
 }
 
 .auth-form__footer p {
-	color: var(--color-light);
-	width: 50%;
-	text-align: center;
+  color: var(--color-light);
+  width: 50%;
+  text-align: center;
 }
 
 .auth-form__footer p a {
-	color: var(--color-primary);
-	transition: var(--transition);
+  color: var(--color-primary);
+  transition: var(--transition);
 }
 
 .input-container {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .input-container div,
 .input-container button {
-	background: transparent;
-	color: var(--color-light);
-	font-size: 1rem;
-	padding: 0 0.5rem;
+  background: var(--color-bg-variant);
+  color: var(--color-light);
+  font-size: 1rem;
+  padding: 0 0.5rem;
 }
 
 .password-toggle {
-	padding-top: 0.3rem;
-	cursor: pointer;
+  padding-top: 0.3rem;
+  cursor: pointer;
 }
 
 .forgot-password {
-	background-color: transparent;
-	color: var(--color-primary-variant);
-	transition: var(--transition);
-	cursor: pointer;
+  background-color: transparent;
+  color: var(--color-primary-variant);
+  transition: var(--transition);
+  cursor: pointer;
 }
 
 .forgot-password:hover {
-	color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .input-container input:focus + div,
 .input-container input:focus + button {
-	color: var(--color-primary);
+  color: var(--color-primary);
 }

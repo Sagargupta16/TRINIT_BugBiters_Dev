@@ -1,103 +1,123 @@
 .nav {
-	padding: 0 1rem;
-	height: 5rem;
-	width: 100%;
-	position: fixed;
-	top: 0;
-	background-color: var(--color-bg-variant);
-	opacity: 0.7;
-	transition: var(--transition);
-	filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	z-index: 10;
+  padding: 0 1rem;
+  height: 5.5rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background: var(--color-primary);
+  transition: var(--transition);
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
 }
 
 .nav__logo {
-	font-size: 1.5rem;
-	font-weight: 500;
-	color: var(--color-primary);
-	text-decoration: none;
-	transition: var(--transition);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-left: 2rem;
-	filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
+}
+.logo-badge {
+  background-color: var(--color-bg);
+  color: #1e3a8a;
+  font-size: 1.8rem;
+  line-height: 1.3rem;
+  font-weight: 600;
+  margin-right: 0.3rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.25rem;
 }
 
 .nav__list {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	gap: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
 }
 
-.nav__list a,
+.nav__list a {
+  aspect-ratio: 1/1;
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: var(--transition);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white);
+  cursor: pointer;
+}
 .nav__list button {
-	aspect-ratio: 1/1;
-	padding: 1rem;
-	font-size: 1.2rem;
-	text-align: center;
-	transition: var(--transition);
-	border-radius: 1rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: var(--color-white);
-	background: var(--color-bg-variant);
-	cursor: pointer;
+  aspect-ratio: 1/1;
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: var(--transition);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  cursor: pointer;
 }
 
 .nav__list a[aria-label]:hover::after,
 .nav__list button[aria-label]:hover::after {
-	content: attr(aria-label);
-	font-size: 0.8rem;
-	position: absolute;
-	color: var(--color-white);
-	font-weight: bold;
-	margin-top: 5rem;
+  content: attr(aria-label);
+  font-size: 0.8rem;
+  position: absolute;
+  color: var(--color-white);
+  font-weight: bold;
+  margin-top: 4.5rem;
 }
 
 .nav__list a:hover,
 .nav__list button:hover {
-	background: var(--color-bg);
-	background-size: 5px 5px;
-	color: var(--color-primary);
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  background: var(--color-bg);
+  background-size: 5px 5px;
+  color: var(--color-primary);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 
 .nav__list .active {
-	background: var(--color-bg);
-	background-size: 5px 5px;
-	color: var(--color-primary);
-	box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  background: var(--color-bg);
+  background-size: 5px 5px;
+  color: var(--color-primary);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
 }
 
 @media screen and (max-width: 600px) {
-	.nav__logo {
-		display: none;
-		font-size: 1.2rem;
-		margin-left: 1rem;
-	}
-	.nav {
-		height: 4rem;
-		padding: 0 1rem;
-		justify-content: space-around;
-	}
-	.nav__list {
-		width: 100%;
-		justify-content: space-around;
-		gap: 0;
-	}
-	.nav__list a .nav__list div {
-		padding: 1rem;
-		font-size: 1rem;
-	}
+  .nav__logo {
+    display: none;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+  }
+  .nav {
+    height: 4rem;
+    padding: 0 1rem;
+    justify-content: space-around;
+  }
+  .nav__list {
+    width: 100%;
+    justify-content: space-around;
+    gap: 0;
+  }
+  .nav__list a .nav__list div {
+    padding: 1rem;
+    font-size: 1rem;
+  }
 
-	.nav__list a[alt]:hover::after,
-	.nav__list div[alt]:hover::after {
-		display: none;
-	}
+  .nav__list a[alt]:hover::after,
+  .nav__list div[alt]:hover::after {
+    display: none;
+  }
 }
