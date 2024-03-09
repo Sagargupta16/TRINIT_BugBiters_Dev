@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+const prodUrl = 'https://api.example.com';
+const devUrl = 'http://localhost:5000';
+
 const axiosInstance = axios.create({
-	baseURL: 'http://localhost:5000'
+  baseURL: window.location.hostname === 'localhost' ? devUrl : prodUrl,
 });
 
 axiosInstance.interceptors.request.use(
