@@ -59,6 +59,7 @@
   justify-content: center;
   margin-top: 20px;
   width: 100%;
+  background-color: var(--color-white);
   /* border: 1px solid var(--color-primary); */
   border-radius: 0.5rem;
   padding: 10px;
@@ -82,32 +83,39 @@
   align-items: center;
   justify-content: center;
   margin: 10px;
-  border: 1px solid var(--color-primary);
   border-radius: 0.5rem;
+  gap: 5px;
   padding: 10px;
-  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   width: 300px;
 }
 
 .upcoming-class h3 {
-  font-size: 18px;
+  margin-top: 0.7rem;
+}
+.upcoming-class h3 span {
+  font-size: 20px;
   font-weight: 600;
-  margin-top: 10px;
-  color: var(--color-primary);
+  background-color: var(--color-primary);
+  padding: 0.5rem 0.5rem;
+  color: var(--color-white);
+  border-radius: 0.5rem;
 }
 
 .upcoming-class p {
   font-size: 16px;
   font-weight: 600;
-  color: var(--color-primary-variant);
+  color: var(--color-black);
+}
+
+.upcoming-class span {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-danger);
 }
 
 .upcoming-class button {
   width: 100%;
-  font:
-    1em Comic Sans MS,
-    Comic Sans,
-    cursive;
   padding: 10px 15px;
   border: none;
   border-radius: 0.5rem;
@@ -115,6 +123,10 @@
   transition: var(--transition);
   background-color: var(--color-primary);
   color: var(--color-bg);
+}
+
+.upcoming-class button:hover {
+  background-color: var(--color-primary-variant);
 }
 
 .logo-badge {

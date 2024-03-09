@@ -55,6 +55,7 @@
 .tutor__image__name h3 {
   font-size: 2rem;
   font-weight: bold;
+  color: var(--color-white);
 }
 
 .tutor__details {
@@ -65,13 +66,23 @@
   gap: 1rem;
 }
 
-.tutor__languages {
+.modal__tutor__languages {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.modal__tutor__languages span {
+  border: 1px solid var(--color-white);
+  padding: 5px;
+  border-radius: 5px;
+  transition: var(--transition);
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  font-weight: 700;
 }
 
 .tutor__experience {
@@ -147,6 +158,11 @@
   cursor: pointer;
   transition: var(--transition);
   color: red;
+  text-shadow:
+    -1px 1px 0 #504f4f,
+    1px 1px 0 #504f4f,
+    1px -1px 0 #504f4f,
+    -1px -1px 0 #504f4f;
 }
 
 .upcoming__card,

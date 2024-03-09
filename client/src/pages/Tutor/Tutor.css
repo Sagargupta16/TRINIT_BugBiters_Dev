@@ -45,10 +45,13 @@
   justify-content: space-between;
   margin-bottom: 20px;
   padding: 20px;
-  border-radius: 1rem;
+  border-radius: 0.8rem;
   gap: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   transition: var(--transition);
+  background-color: #e8f0fe;
 }
 
 .tutor__details {
@@ -99,11 +102,18 @@
   transition: var(--transition);
   background-color: var(--color-primary);
   color: var(--color-white);
+  font-weight: 700;
 }
 
-.tutor__experience {
-  font-size: 1em;
-  font-weight: bold;
+.tutor__experience p {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: rgb(255, 217, 0);
+  text-shadow:
+    -1px 1px 0 #504f4f,
+    1px 1px 0 #504f4f,
+    1px -1px 0 #504f4f,
+    -1px -1px 0 #504f4f;
 }
 
 .tutor__actions {

@@ -80,15 +80,22 @@ const Profile = () => {
   const rightComponent = (
     <div className="profile-right">
       <div className="profile-right-top">
-        <h3>Upcoming Classes</h3>
+        <span className="logo-badge">Upcoming Classes</span>
         <div className="upcoming-classes">
           {user.classes && user.classes.length !== 0 ? (
             user.classes.map((course, index) => {
               return (
                 <div key={index} className="upcoming-class">
-                  <h3>{course.language}</h3>
+                  <h3>
+                    <span>{course.language}</span>
+                  </h3>
                   <p>{new Date(course.startTime).toDateString()}</p>
-                  <p>{new Date(course.startTime).toLocaleTimeString()}</p>
+                  <span>
+                    {new Date(course.startTime).toLocaleTimeString(
+                      navigator.language,
+                      { hour: "2-digit", minute: "2-digit" }
+                    )}
+                  </span>
                   <p>₹{course.price}</p>
                   <p>{course.duration} minutes</p>
                   <button onClick={() => onClickHandler(course.videoId)}>
@@ -103,7 +110,7 @@ const Profile = () => {
         </div>
       </div>
       <div className="profile-right-top">
-        <h3>Upcoming Tests</h3>
+        <span className="logo-badge">Upcoming Tests</span>
         <div className="upcoming-classes">
           {user.tests && user.tests.length !== 0 ? (
             user.tests.map((test, index) => {

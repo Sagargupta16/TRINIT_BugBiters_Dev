@@ -46,7 +46,7 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
                 <h3 className="tutor__name">{tutor.name}</h3>
               </div>
               <div className="tutor__details">
-                <div className="tutor__languages">
+                <div className="modal__tutor__languages">
                   {tutor.languages.map((language, index) => {
                     return <span key={index}>{language}</span>;
                   })}
@@ -59,7 +59,7 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
 
             <div className="modal__body">
               <div className="upcoming_classes">
-                <span className="logo-badge">Upcoming language</span>
+                <span className="logo-badge">Upcoming Classes</span>
                 <div className="upcoming_classes__list">
                   <div className="upcoming_class">
                     {tutor.classes.map((cls, index) => {
@@ -108,7 +108,7 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
                               <button
                                 className="btn"
                                 onClick={() => onhandleBook("slot", slot)}>
-                                \ Book
+                                Book
                               </button>
                             </div>
                           </div>
