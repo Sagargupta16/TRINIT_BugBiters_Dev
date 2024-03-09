@@ -16,4 +16,6 @@ router.put('/update/:id', authenticateUser, limiter, studentController.updateStu
 // Delete a Student with rate limiting
 router.delete('/delete/:id', authenticateUser, limiter, studentController.deleteStudent);
 
+router.post('/create-checkout-session', authenticateUser, studentController.createCheckoutSession);
+
 module.exports = router;
