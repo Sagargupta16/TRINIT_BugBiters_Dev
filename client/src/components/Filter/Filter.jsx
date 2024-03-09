@@ -14,7 +14,7 @@ const Filter = ({ Allptions, optionClickHandler }) => {
               className="filter__item__value"
               onClick={() => optionClickHandler(head, option.value)}
             >
-              {option}
+              {option.label}
             </button>
           ))}
         </div>
