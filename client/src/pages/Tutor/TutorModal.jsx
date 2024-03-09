@@ -13,6 +13,7 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
 
   const formatTime = (date) => {
     const d = new Date(date);
+
     return `${d.getHours() > 12 ? d.getHours() - 12 : d.getHours()}:${d.getMinutes().toString().padStart(2, "0")} ${d.getHours() >= 12 ? "PM" : "AM"}`;
   };
 
@@ -62,12 +63,12 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
                 <div className="upcoming_classes__list">
                   <div className="upcoming_class">
                     {tutor.classes.map((cls, index) => {
-                      console.log(cls);
                       return (
                         <div className="upcoming__card" key={index}>
                           <div className="upcoming__details">
                             <div className="upcoming__info">
                               <h3 className="upcoming__name">{cls.language}</h3>
+
                               <p>Class Date: {formatDate(cls.startTime)}</p>
                               <p>Class Time: {formatTime(cls.startTime)}</p>
                               <p>Duration: {cls.duration} minutes</p>
@@ -108,7 +109,7 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
                               <button
                                 className="btn"
                                 onClick={() => onhandleBook("slot", slot)}
-                              >
+                              >\
                                 Book
                               </button>
                             </div>

@@ -14,7 +14,7 @@
 
 /* modal */
 .modal {
-  background-color: var(--color-bg-variant);
+  background-color: var(--color-bg);
   border-radius: 8px;
   width: 80%;
   padding: 20px;
@@ -145,4 +145,18 @@
   cursor: pointer;
   transition: var(--transition);
   color: red;
+}
+
+.upcoming__card,
+.slot__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 200px;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: var(--transition);
 }
