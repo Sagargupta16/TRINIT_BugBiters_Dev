@@ -1,27 +1,27 @@
 {
-	"name": "lingua-connect",
-	"version": "1.0.0",
-	"description": "A language learning platform",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"format": "prettier --write .",
-		"frontend-start": "cd client && npm start",
-		"frontent-build": "cd client && npm run build",
-		"frontend-install": "cd client && npm install",
-		"backend-start": "cd server && npm start",
-		"backend-install": "cd server && npm install",
-		"start": "concurrently \"npm run backend-start\" \"npm run frontend-start\"",
-		"fb-install": "concurrently \"npm install\" \"npm run backend-install\" \"npm run frontend-install\"",
-		"frontend-build": "cd client && npm run build"
-	},
-	"author": "Sagar Gupta",
-	"license": "ISC",
-	"devDependencies": {
-		"prettier": "^3.1.1",
-		"prettier-plugin-organize-imports": "^3.2.4",
-		"tailwindcss": "^3.4.1"
-	},
-	"dependencies": {
-		"concurrently": "^8.2.2"
-	}
+  "name": "lingua-connect",
+  "version": "1.0.0",
+  "description": "A language learning platform",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write .",
+    "frontend-start": "cd client && npm start",
+    "frontent-build": "cd client && npm run build",
+    "frontend-install": "cd client && npm install",
+    "backend-start": "cd server && npm start",
+    "backend-install": "cd server && npm install",
+    "start": "concurrently \"npm run backend-start\" \"npm run frontend-start\"",
+    "fb-install": "concurrently \"npm install\" \"npm run backend-install\" \"npm run frontend-install\"",
+    "frontend-build": "cd client && npm run build"
+  },
+  "author": "Sagar Gupta",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.1.1",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
 }

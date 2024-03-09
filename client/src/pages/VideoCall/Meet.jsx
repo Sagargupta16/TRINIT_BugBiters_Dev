@@ -13,7 +13,7 @@ const Meet = () => {
       serverSecret,
       roomId,
       Date.now().toString(),
-      "host"
+      "host",
     );
     const zp = ZegoUIKitPrebuilt.create(kitToken);
     zp.joinRoom({

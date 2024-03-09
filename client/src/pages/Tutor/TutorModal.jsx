@@ -13,7 +13,8 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
 
   const formatTime = (date) => {
     const d = new Date(date);
-    return `${d.getHours()}:${d.getMinutes()}`;
+
+    return `${d.getHours() > 12 ? d.getHours() - 12 : d.getHours()}:${d.getMinutes().toString().padStart(2, "0")} ${d.getHours() >= 12 ? "PM" : "AM"}`;
   };
 
   const onhandleBook = async (bookIn, book) => {
@@ -67,16 +68,16 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
                           <div className="upcoming__details">
                             <div className="upcoming__info">
                               <h3 className="upcoming__name">{cls.language}</h3>
-                              <p>Class Date: {cls.startTime}</p>
-                              <p>
-                                Class Time: {cls.startTime}
-                                <span>AM</span>
-                              </p>
+
+                              <p>Class Date: {formatDate(cls.startTime)}</p>
+                              <p>Class Time: {formatTime(cls.startTime)}</p>
+                              <p>Duration: {cls.duration} minutes</p>
                             </div>
                             <div className="upcoming__actions">
                               <button
                                 className="btn"
-                                onClick={() => onhandleBook("class", cls)}>
+                                onClick={() => onhandleBook("class", cls)}
+                              >
                                 Book
                               </button>
                             </div>
@@ -107,7 +108,8 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
                             <div className="slot__actions">
                               <button
                                 className="btn"
-                                onClick={() => onhandleBook("slot", slot)}>
+                                onClick={() => onhandleBook("slot", slot)}
+                              >\
                                 Book
                               </button>
                             </div>
