@@ -104,6 +104,8 @@ html {
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
   transition: var(--transition);
 }
 

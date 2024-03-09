@@ -1,148 +1,162 @@
 /* modal-overlay */
 .modal-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	backdrop-filter: blur(5px);
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* modal */
 .modal {
-	background-color: var(--color-bg-variant);
-	border-radius: 8px;
-	width: 80%;
-	padding: 20px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-	height: 80vh;
-	margin-top: 2rem;
-	overflow-y: auto;
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  width: 80%;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  height: 80vh;
+  margin-top: 2rem;
+  overflow-y: auto;
 }
 
 .modal__header {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 20px;
-	gap: 1rem;
-	border-bottom: 1px solid var(--color-primary);
-	padding-bottom: 20px;
-	border-radius: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-primary);
+  padding-bottom: 20px;
+  border-radius: 0.4rem;
 }
 
 .tutor__image__name {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	width: 50%;
-	gap: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  gap: 1rem;
 }
 
 .tutor__image__name img {
-	width: 10rem;
-	height: 10rem;
-	border-radius: 50%;
-	transition: var(--transition);
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  transition: var(--transition);
 }
 
 .tutor__image__name h3 {
-	font-size: 2rem;
-	font-weight: bold;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .tutor__details {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .tutor__languages {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	gap: 5px;
-	flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
 }
 
 .tutor__experience {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .modal__body {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
 }
 
 .upcoming_classes,
 .available-slots {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	padding: 20px;
-	gap: 1rem;
-	/* overflow-x: auto; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  gap: 1rem;
+  /* overflow-x: auto; */
 }
 
 .upcoming_classes h3,
 .available-slots h3 {
-	font-size: 1.5rem;
-	font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .upcoming_classes__list,
 .slots__list {
-	display: flex;
-	overflow-x: scroll;
-	gap: 1rem;
-	padding: 1rem;
-	width: 100%;
+  display: flex;
+  overflow-x: scroll;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
 }
 
 .classes-card,
 .slots-card {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 1rem;
-	width: 300px;
-	padding: 20px;
-	border-radius: 1rem;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-	transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 300px;
+  padding: 20px;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: var(--transition);
 }
 
 .upcoming_class,
 .slot {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .modal__close {
-	position: absolute;
-	top: 6rem;
-	right: 15.5rem;
-	font-size: 4rem;
-	cursor: pointer;
-	transition: var(--transition);
-	color: red;
+  position: absolute;
+  top: 6rem;
+  right: 15.5rem;
+  font-size: 4rem;
+  cursor: pointer;
+  transition: var(--transition);
+  color: red;
+}
+
+.upcoming__card,
+.slot__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 200px;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: var(--transition);
 }
