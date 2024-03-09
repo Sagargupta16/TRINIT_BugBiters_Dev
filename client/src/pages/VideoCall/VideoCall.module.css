@@ -1,12 +1,12 @@
 .room-id {
 	margin-top: 20px;
 	margin-bottom: 20px;
-    border-radius: 0.4rem;
+	border-radius: 0.4rem;
 	font-size: 20px;
 	font-weight: bold;
 	text-align: center;
-    padding: 0.5rem;
-    background-color: grey;
+	padding: 0.5rem;
+	background-color: grey;
 }
 
 .btn {

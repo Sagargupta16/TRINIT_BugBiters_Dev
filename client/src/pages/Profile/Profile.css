@@ -43,7 +43,7 @@
 	margin-top: 20px;
 }
 
-.profile-right{
+.profile-right {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -102,7 +102,10 @@
 
 .upcoming-classes div button {
 	width: 100%;
-	font: 1em Comic Sans MS, Comic Sans, cursive;
+	font:
+		1em Comic Sans MS,
+		Comic Sans,
+		cursive;
 	padding: 10px 15px;
 	border: none;
 	border-radius: 0.5rem;

@@ -17,9 +17,10 @@ const Meet = () => {
 			}
 		});
 	};
-	return <div className={classes["container"]}>
-        
-        <div ref={myMeeting} />
-    </div>;
+	return (
+		<div className={classes['container']}>
+			<div ref={myMeeting} />
+		</div>
+	);
 };
 export default Meet;

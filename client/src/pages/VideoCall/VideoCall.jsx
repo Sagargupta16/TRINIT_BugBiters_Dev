@@ -5,7 +5,7 @@ const VideoCall = () => {
 	const navigate = useNavigate();
 	const SubmitHandler = (event) => {
 		event.preventDefault();
-        console.log('SubmitHandler');
+		console.log('SubmitHandler');
 		const roomId = document.getElementById('room-id').value;
 		return navigate(`/room/${roomId}`);
 	};
