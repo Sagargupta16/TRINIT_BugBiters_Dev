@@ -2,6 +2,7 @@ import { jwtDecode } from 'jwt-decode';
 import { useEffect, useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
 import { FaHome, FaSignInAlt, FaVideo } from 'react-icons/fa';
+import { MdClass } from 'react-icons/md';
 import { PiSignOutBold } from 'react-icons/pi';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { checkToken } from '../../api/tokenCheckApi';
@@ -59,11 +60,10 @@ const NavBar = () => {
 				{
 					to: 'tutor',
 					label: 'Tutor',
-					icon: <CgProfile />
+					icon: <MdClass />
 				}
 			]);
-		} 
-		else if (isAuthenticated && role === 'tutor') {
+		} else if (isAuthenticated && role === 'tutor') {
 			setNavItems([
 				...fixedItems,
 				{
@@ -77,8 +77,7 @@ const NavBar = () => {
 					icon: <FaVideo />
 				}
 			]);
-		}
-		else {
+		} else {
 			setNavItems([
 				...fixedItems,
 				{
@@ -88,7 +87,7 @@ const NavBar = () => {
 				}
 			]);
 		}
-	}, [isAuthenticated , role]);
+	}, [isAuthenticated, role]);
 
 	const onSignOutClick = () => {
 		setIsModalOpen(true);
