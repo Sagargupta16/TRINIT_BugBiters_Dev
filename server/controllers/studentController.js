@@ -1,6 +1,7 @@
 const Student = require('../models/Student');
 const logger = require('../utils/logger');
 const stripe = require('stripe')('sk_test_51OsIjoSDjkXJPjPF1rT5ppopYqwY4mTLNpUQ7yz5L9W9rVIH14jLtaG2AnLbTzuAbASuPv8icfsmPB77mWrEiEl000Latkki6n');
+const Class = require('../models/Class');
 
 exports.viewAllStudents = async (req, res) => {
 	try {
@@ -15,7 +16,7 @@ exports.viewAllStudents = async (req, res) => {
 exports.viewSingleStudent = async (req, res) => {
 	try {
 		const { id } = req.params,
-			student = await Student.findById(id);
+			student = await Student.findById(id).populate('classes').populate('tests').populate('flashcards');
 		if (!student) return res.status(404).json({ errors: ['Student not found'] });
 		res.json(student);
 	} catch (error) {
@@ -60,20 +61,19 @@ exports.createCheckoutSession = async (req, res) => {
 				},
 				unit_amount: item.price * 100
 			},
-			quantity: item.quantity,
-
+			quantity: item.quantity
 		};
 
 		const customer = await stripe.customers.create({
 			name: 'Jenny Rosen',
 			address: {
-			  line1: '510 Townsend St',
-			  postal_code: '98140',
-			  city: 'San Francisco',
-			  state: 'CA',
-			  country: 'US',
-			},
-		  });
+				line1: '510 Townsend St',
+				postal_code: '98140',
+				city: 'San Francisco',
+				state: 'CA',
+				country: 'US'
+			}
+		});
 
 		const session = await stripe.checkout.sessions.create({
 			payment_method_types: ['card'],
@@ -84,6 +84,21 @@ exports.createCheckoutSession = async (req, res) => {
 			cancel_url: `${process.env.CLIENT_URL}/payment-failed`
 		});
 		res.json({ id: session.id });
+	} catch (error) {
+		logger.error(error);
+		res.status(500).json({ errors: ['Internal server error'] });
+	}
+};
+
+// Add a class to a Student with rate limiting
+exports.addClass = async (req, res) => {
+	try {
+		const { id } = req.params,
+			student = await Student.findById(id);
+		if (!student) return res.status(404).json({ errors: ['Student not found'] });
+		student.classes.push(req.body);
+		await student.save();
+		res.json(student);
 	} catch (error) {
 		logger.error(error);
 		res.status(500).json({ errors: ['Internal server error'] });

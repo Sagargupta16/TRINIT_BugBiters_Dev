@@ -18,4 +18,6 @@ router.delete('/delete/:id', authenticateUser, limiter, studentController.delete
 
 router.post('/create-checkout-session', authenticateUser, studentController.createCheckoutSession);
 
+router.post('/addClass/:id', authenticateUser, studentController.addClass);
+
 module.exports = router;

@@ -9,17 +9,24 @@ const tutorSchema = new mongoose.Schema(
 		},
 		password: { type: String, required: true },
 		role: { type: String, required: true, default: 'tutor' },
-		language: { type: [String], required: true },
+		languages: { type: [String], required: true },
 		yearsOfExperience: { type: Number, required: true },
+		rating: { type: Number, default: 0 },
 		classes: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
-				ref: 'Class'
+				ref: 'Class',
+				default: []
 			}
 		],
 		slotsAvailability: [
 			{
-				date: { startTime: { type: Date, required: true }, endTime: { type: Date, required: true } }
+				id: { type: String },
+				date: { type: Date },
+				startTime: { type: Date },
+				duration: { type: Number },
+				price: { type: Number },
+				language: { type: String }
 			}
 		]
 	},

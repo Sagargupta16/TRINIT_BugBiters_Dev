@@ -53,10 +53,17 @@
 	border-radius: 0.5rem;
 }
 
-.auth-form__item label {
+.auth-form__label {
 	color: var(--color-light);
 	font-size: 1rem;
 	width: 20%;
+	border-right: 1px solid var(--color-bg-variant);
+	padding: 0.8rem;
+	height: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.5rem;
 }
 
 .auth-form__item input,
@@ -167,4 +174,30 @@
 .input-container input:focus + div,
 .input-container input:focus + button {
 	color: var(--color-primary);
+}
+
+.input-language {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	flex-wrap: wrap;
+	gap: 1rem;
+	padding: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.auth-form__checkbox {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	gap: 0.5rem;
+}
+
+.auth-form__checkbox label {
+	color: var(--color-primary);
+	font-size: 1rem;
+	width: 100%;
 }

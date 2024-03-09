@@ -14,6 +14,28 @@ const AuthenticationForm = () => {
 	const [password, setPassword] = useState('');
 	const [params] = useSearchParams();
 	const navigate = useNavigate();
+	const randomLanguages = [
+		'English',
+		'Spanish',
+		'French',
+		'German',
+		'Italian',
+		'Chinese',
+		'Japanese',
+		'Russian',
+		'Arabic',
+		'Portuguese',
+		'Korean',
+		'Dutch'
+	];
+
+	const [currentRole, setCurrentRole] = useState('student');
+	const [languages, setLanguages] = useState([]);
+	const [experience, setExperience] = useState();
+
+	const onChangeRole = (e) => {
+		setCurrentRole(e.target.value);
+	};
 
 	const isSignIn = params.get('mode') === 'signin';
 
@@ -29,12 +51,9 @@ const AuthenticationForm = () => {
 
 		const user = isSignIn
 			? { email: email.toLowerCase(), password }
-			: {
-					name,
-					email: email.toLowerCase(),
-					password,
-					role: e.target.role.value
-				};
+			: currentRole === 'student'
+				? { name, email: email.toLowerCase(), password, role: currentRole }
+				: { name, email: email.toLowerCase(), password, role: currentRole, languages, yearsOfExperience: experience };
 
 		try {
 			const res = await (isSignIn ? signin(user) : signup(user));
@@ -94,7 +113,7 @@ const AuthenticationForm = () => {
 				{getEmailPassInput()}
 				<div className={classes['auth-form__item']}>
 					{/* <label htmlFor="role">Role</label> */}
-					<select name="role" id="role">
+					<select name="role" id="role" onChange={onChangeRole} value={currentRole}>
 						<option value="" disabled>
 							Select Role
 						</option>
@@ -102,6 +121,32 @@ const AuthenticationForm = () => {
 						<option value="student">Student</option>
 					</select>
 				</div>
+				{currentRole === 'tutor' && (
+					<>
+						<div className={classes['auth-form__item']}>
+							<input type="text" placeholder="Enter your experience" onChange={(e) => setExperience(e.target.value)} value={experience} />
+						</div>
+						<div className={classes['auth-form__item']}>
+							<label htmlFor="languages" className={classes['auth-form__label']}>
+								Languages
+							</label>
+							<div className={classes['input-language']}>
+								{randomLanguages.map((language, index) => (
+									<div key={index} className={classes['auth-form__checkbox']}>
+										<input
+											type="checkbox"
+											id={language}
+											name={language}
+											value={language}
+											onChange={(e) => setLanguages([...languages, e.target.value])}
+										/>
+										<label htmlFor={language}>{language}</label>
+									</div>
+								))}
+							</div>
+						</div>
+					</>
+				)}
 
 				<button type="submit" className={classes.btn}>
 					Sign Up

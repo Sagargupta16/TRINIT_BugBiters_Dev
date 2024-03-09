@@ -49,19 +49,20 @@
 }
 
 .tutor__details {
-	
 	width: 100%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
+	gap: 20px;
 }
 
 .tutor__image img {
-	width: 100%;
-	height: 100%;
+	width: 150px;
+	height: 150px;
 	border-radius: 50%;
+	transition: var(--transition);
 }
 
 .tutor__info {

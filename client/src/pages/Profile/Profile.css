@@ -15,8 +15,8 @@
 }
 
 .profile-info img {
-	width: 200px;
-	height: 200px;
+	width: 150px;
+	height: 150px;
 	border-radius: 50%;
 	object-fit: cover;
 }
@@ -31,8 +31,6 @@
 .role {
 	font-size: 18px;
 	font-weight: 600;
-	margin-top: 10px;
-	color: var(--color-primary);
 }
 
 .profile-details {
@@ -69,12 +67,12 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	margin-top: 10px;
 	width: 100%;
 }
 
-.upcoming-classes div {
+.upcoming-class {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -84,23 +82,23 @@
 	border-radius: 0.5rem;
 	padding: 10px;
 	box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
-	width: 100%;
+	width: 300px;
 }
 
-.upcoming-classes div h3 {
+.upcoming-class h3 {
 	font-size: 18px;
 	font-weight: 600;
 	margin-top: 10px;
 	color: var(--color-primary);
 }
 
-.upcoming-classes div p {
+.upcoming-class p {
 	font-size: 16px;
 	font-weight: 600;
 	color: var(--color-primary-variant);
 }
 
-.upcoming-classes div button {
+.upcoming-class button {
 	width: 100%;
 	font:
 		1em Comic Sans MS,
@@ -113,4 +111,21 @@
 	transition: var(--transition);
 	background-color: var(--color-primary);
 	color: var(--color-bg);
+}
+
+.no-cards {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 20px 0;
+}
+
+.slot__buttons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
 }
