@@ -76,7 +76,8 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
                             <div className="upcoming__actions">
                               <button
                                 className="btn"
-                                onClick={() => onhandleBook("class", cls)}>
+                                onClick={() => onhandleBook("class", cls)}
+                              >
                                 Book
                               </button>
                             </div>
@@ -126,7 +127,7 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
         </div>
       ) : null}
     </>,
-    document.getElementById("modal-root")
+    document.getElementById("modal-root"),
   );
 };
 
