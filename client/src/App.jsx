@@ -58,22 +58,22 @@ const App = () => {
 		}
 	]);
 
-	return (
-		<>
-			<RouterProvider router={router} className="App" />
-			<ToastContainer
-				position="bottom-right"
-				autoClose={2500}
-				hideProgressBar={false}
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-			/>
-		</>
-	);
+  return (
+    <>
+      <RouterProvider router={router} className="App" />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+    </>
+  );
 };
 
 export default App;

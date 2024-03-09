@@ -54,6 +54,7 @@
 		"@babel/plugin-transform-private-methods": "^7.23.3",
 		"@rollup/plugin-terser": "^0.4.4",
 		"react-scripts": "^5.0.1",
+		"tailwindcss": "^3.4.1",
 		"webpack-dev-server": "^5.0.0",
 		"workbox-background-sync": "^7.0.0"
 	}
