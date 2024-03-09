@@ -8,6 +8,7 @@ const studentRoutes = require('./routes/studentRoutes.js');
 const tutorRoutes = require('./routes/tutorRoutes.js');
 const classRoutes = require('./routes/classRoutes.js');
 const flashcardRoutes = require('./routes/flashcardRoutes.js');
+const testRoutes = require('./routes/testRoutes.js');
 const { authenticateUser } = require('./middleware/authMiddleware.js');
 
 dotenv.config();
@@ -37,6 +38,8 @@ app.use('/tutor', tutorRoutes);
 app.use('/class', classRoutes);
 
 app.use('/flashcard', flashcardRoutes);
+
+app.use('/test', testRoutes);
 
 app.get('/token-check', authenticateUser, (req, res) => {
 	try {

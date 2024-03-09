@@ -16,4 +16,13 @@ router.put('/update/:id', authenticateUser, limiter, tutorController.updateTutor
 // Delete a Tutor with rate limiting
 router.delete('/delete/:id', authenticateUser, limiter, tutorController.deleteTutor);
 
+// Add a Slot to a Tutor with rate limiting
+router.post('/add-slot/:id', authenticateUser, limiter, tutorController.addSlot);
+
+// Delete a Slot from a Tutor with rate limiting
+router.delete('/delete-slot/:id/:slotId', authenticateUser, limiter, tutorController.deleteSlot);
+
+// Add class to tutor
+router.post('/addClass/:id', authenticateUser, tutorController.addClass);
+
 module.exports = router;

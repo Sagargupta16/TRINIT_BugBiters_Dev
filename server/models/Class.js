@@ -12,7 +12,8 @@ const classSchema = new mongoose.Schema(
 		duration: { type: Number, required: true },
 		price: { type: Number, required: true },
 		isCancelled: { type: Boolean, required: true, default: false },
-		level: { type: String, required: true }
+		level: { type: String, required: true },
+		videoId: { type: String, required: true }
 	},
 	{
 		timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' }

@@ -16,6 +16,13 @@ const studentSchema = new mongoose.Schema(
 				default: []
 			}
 		],
+		tests: [
+			{
+				type: mongoose.Schema.Types.ObjectId,
+				ref: 'Test',
+				default: []
+			}
+		],
 		flashcards: [
 			{
 				type: mongoose.Schema.Types.ObjectId,

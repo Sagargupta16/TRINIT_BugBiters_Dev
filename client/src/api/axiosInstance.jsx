@@ -4,7 +4,7 @@ const prodUrl = 'https://trinit-bugbiters-dev.onrender.com';
 const devUrl = 'http://localhost:5000';
 
 const axiosInstance = axios.create({
-  baseURL: window.location.hostname === 'localhost' ? devUrl : prodUrl,
+	baseURL: window.location.hostname === 'localhost' ? devUrl : prodUrl
 });
 
 axiosInstance.interceptors.request.use(

@@ -24,18 +24,21 @@ exports.postSignup = async (req, res) => {
 			});
 		}
 
-		if(user.role !== 'tutor' && user.role !== 'student') return res.status(400).json({ errors: ['Invalid role'] });
+		if (user.role !== 'tutor' && user.role !== 'student') return res.status(400).json({ errors: ['Invalid role'] });
 
 		const hashedPassword = await bcrypt.hash(user.password, Number(process.env.JWT_SALT_ROUNDS));
 		user.password = hashedPassword;
 
 		if (user.role === 'tutor') {
-			if (user.language.length === 0) {
+			console.log(user);
+			if (user.languages.length === 0) {
 				return res.status(400).json({ errors: ['Atleast 1 language required'] });
 			}
+			console.log(user.yearsOfExperience);
 			if (user.yearsOfExperience < 0) {
 				return res.status(400).json({ errors: ['Years of experience must be greater than 0'] });
 			}
+			console.log(user);
 			await new Tutor(user).save();
 		} else {
 			await new Student(user).save();
