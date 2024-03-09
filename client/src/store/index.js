@@ -1,11 +1,11 @@
-import { combineReducers } from '@reduxjs/toolkit';
+import { combineReducers } from "@reduxjs/toolkit";
 
-import uiReducer from './ui';
-import userReducer from './user';
+import uiReducer from "./ui";
+import userReducer from "./user";
 
 const rootReducer = combineReducers({
-	user: userReducer,
-	ui: uiReducer
+  user: userReducer,
+  ui: uiReducer,
 });
 
 export default rootReducer;

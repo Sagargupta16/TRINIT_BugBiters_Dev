@@ -24,7 +24,8 @@ const VideoCall = () => {
         <button
           id="join-room"
           className={classes["btn"]}
-          onClick={SubmitHandler}>
+          onClick={SubmitHandler}
+        >
           Join Room
         </button>
       </div>

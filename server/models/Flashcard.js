@@ -1,14 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const flashcardSchema = new mongoose.Schema(
-	{
-		language: { type: String, required: true }
-	},
-	{
-		timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' }
-	}
+  {
+    language: { type: String, required: true },
+  },
+  {
+    timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" },
+  },
 );
 
-const Flashcard = mongoose.model('Flashcard', flashcardSchema);
+const Flashcard = mongoose.model("Flashcard", flashcardSchema);
 
 module.exports = Flashcard;

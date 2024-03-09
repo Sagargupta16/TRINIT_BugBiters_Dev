@@ -9,34 +9,33 @@ import FormFooter from "./FormFooter";
 import classes from "./auth.module.css";
 
 const AuthenticationForm = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [params] = useSearchParams();
+  const navigate = useNavigate();
+  const randomLanguages = [
+    "English",
+    "Spanish",
+    "French",
+    "German",
+    "Italian",
+    "Chinese",
+    "Japanese",
+    "Russian",
+    "Arabic",
+    "Portuguese",
+    "Korean",
+    "Dutch",
+  ];
 
-	const [name, setName] = useState('');
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [params] = useSearchParams();
-	const navigate = useNavigate();
-	const randomLanguages = [
-		'English',
-		'Spanish',
-		'French',
-		'German',
-		'Italian',
-		'Chinese',
-		'Japanese',
-		'Russian',
-		'Arabic',
-		'Portuguese',
-		'Korean',
-		'Dutch'
-	];
+  const [currentRole, setCurrentRole] = useState("student");
+  const [languages, setLanguages] = useState([]);
+  const [experience, setExperience] = useState();
 
-	const [currentRole, setCurrentRole] = useState('student');
-	const [languages, setLanguages] = useState([]);
-	const [experience, setExperience] = useState();
-
-	const onChangeRole = (e) => {
-		setCurrentRole(e.target.value);
-	};
+  const onChangeRole = (e) => {
+    setCurrentRole(e.target.value);
+  };
 
   const isSignIn = params.get("mode") === "signin";
 
@@ -47,17 +46,23 @@ const AuthenticationForm = () => {
       name
         .split(" ")
         .map(
-          (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+          (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
         )
-        .join(" ")
+        .join(" "),
     );
 
-
-		const user = isSignIn
-			? { email: email.toLowerCase(), password }
-			: currentRole === 'student'
-				? { name, email: email.toLowerCase(), password, role: currentRole }
-				: { name, email: email.toLowerCase(), password, role: currentRole, languages, yearsOfExperience: experience };
+    const user = isSignIn
+      ? { email: email.toLowerCase(), password }
+      : currentRole === "student"
+        ? { name, email: email.toLowerCase(), password, role: currentRole }
+        : {
+            name,
+            email: email.toLowerCase(),
+            password,
+            role: currentRole,
+            languages,
+            yearsOfExperience: experience,
+          };
 
     try {
       const res = await (isSignIn ? signin(user) : signup(user));
@@ -65,7 +70,7 @@ const AuthenticationForm = () => {
         <ToastContent
           res={isSignIn ? "Sign In successful" : "Sign Up successful"}
           messages={res.data.messages}
-        />
+        />,
       );
       if (isSignIn) {
         localStorage.setItem("token", res.data.data.token);
@@ -76,7 +81,7 @@ const AuthenticationForm = () => {
         <ToastContent
           res={isSignIn ? "Sign In failed" : "Sign Up failed"}
           messages={err.response.data.errors}
-        />
+        />,
       );
     }
   };
@@ -109,7 +114,8 @@ const AuthenticationForm = () => {
             <button
               type="button"
               className={classes["password-toggle"]}
-              onClick={() => setShowPassword(!showPassword)}>
+              onClick={() => setShowPassword(!showPassword)}
+            >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
           </div>
@@ -129,50 +135,70 @@ const AuthenticationForm = () => {
       </>
     );
   };
-	const signUp = () => {
-		return (
-			<>
-				<div className={classes['auth-form__item']}>
-					{/* <label htmlFor="name">Name</label> */}
-					<input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} value={name} />
-				</div>
-				{getEmailPassInput()}
-				<div className={classes['auth-form__item']}>
-					{/* <label htmlFor="role">Role</label> */}
-					<select name="role" id="role" onChange={onChangeRole} value={currentRole}>
-						<option value="" disabled>
-							Select Role
-						</option>
-						<option value="tutor">Tutor</option>
-						<option value="student">Student</option>
-					</select>
-				</div>
-				{currentRole === 'tutor' && (
-					<>
-						<div className={classes['auth-form__item']}>
-							<input type="text" placeholder="Enter your experience" onChange={(e) => setExperience(e.target.value)} value={experience} />
-						</div>
-						<div className={classes['auth-form__item']}>
-							<label htmlFor="languages" className={classes['auth-form__label']}>
-								Languages
-							</label>
-							<div className={classes['input-language']}>
-								{randomLanguages.map((language, index) => (
-									<div key={index} className={classes['auth-form__checkbox']}>
-										<input
-											type="checkbox"
-											id={language}
-											name={language}
-											value={language}
-											onChange={(e) => setLanguages([...languages, e.target.value])}
-										/>
-										<label htmlFor={language}>{language}</label>
-									</div>
-								))}
-							</div>
-						</div>
-					</>
-				)}
+  const signUp = () => {
+    return (
+      <>
+        <div className={classes["auth-form__item"]}>
+          {/* <label htmlFor="name">Name</label> */}
+          <input
+            type="text"
+            placeholder="Name"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+          />
+        </div>
+        {getEmailPassInput()}
+        <div className={classes["auth-form__item"]}>
+          {/* <label htmlFor="role">Role</label> */}
+          <select
+            name="role"
+            id="role"
+            onChange={onChangeRole}
+            value={currentRole}
+          >
+            <option value="" disabled>
+              Select Role
+            </option>
+            <option value="tutor">Tutor</option>
+            <option value="student">Student</option>
+          </select>
+        </div>
+        {currentRole === "tutor" && (
+          <>
+            <div className={classes["auth-form__item"]}>
+              <input
+                type="text"
+                placeholder="Enter your experience"
+                onChange={(e) => setExperience(e.target.value)}
+                value={experience}
+              />
+            </div>
+            <div className={classes["auth-form__item"]}>
+              <label
+                htmlFor="languages"
+                className={classes["auth-form__label"]}
+              >
+                Languages
+              </label>
+              <div className={classes["input-language"]}>
+                {randomLanguages.map((language, index) => (
+                  <div key={index} className={classes["auth-form__checkbox"]}>
+                    <input
+                      type="checkbox"
+                      id={language}
+                      name={language}
+                      value={language}
+                      onChange={(e) =>
+                        setLanguages([...languages, e.target.value])
+                      }
+                    />
+                    <label htmlFor={language}>{language}</label>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
 
         <button type="submit" className={classes.btn}>
           Sign Up

@@ -15,10 +15,10 @@
 }
 
 .profile-info img {
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
-	object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .username {
@@ -68,53 +68,53 @@
 }
 
 .upcoming-classes {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: flex-start;
-	margin-top: 10px;
-	width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .upcoming-class {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin: 10px;
-	border: 1px solid var(--color-primary);
-	border-radius: 0.5rem;
-	padding: 10px;
-	box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
-	width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  border: 1px solid var(--color-primary);
+  border-radius: 0.5rem;
+  padding: 10px;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
+  width: 300px;
 }
 
 .upcoming-class h3 {
-	font-size: 18px;
-	font-weight: 600;
-	margin-top: 10px;
-	color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+  color: var(--color-primary);
 }
 
 .upcoming-class p {
-	font-size: 16px;
-	font-weight: 600;
-	color: var(--color-primary-variant);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-primary-variant);
 }
 
 .upcoming-class button {
-	width: 100%;
-	font:
-		1em Comic Sans MS,
-		Comic Sans,
-		cursive;
-	padding: 10px 15px;
-	border: none;
-	border-radius: 0.5rem;
-	cursor: pointer;
-	transition: var(--transition);
-	background-color: var(--color-primary);
-	color: var(--color-bg);
+  width: 100%;
+  font:
+    1em Comic Sans MS,
+    Comic Sans,
+    cursive;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: var(--color-primary);
+  color: var(--color-bg);
 }
 
 .logo-badge {
@@ -130,18 +130,18 @@
 }
 
 .no-cards {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin: 20px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
 }
 
 .slot__buttons {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
