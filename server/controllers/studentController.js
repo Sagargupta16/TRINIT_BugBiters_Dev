@@ -1,5 +1,6 @@
 const Student = require('../models/Student');
 const logger = require('../utils/logger');
+const stripe = require('stripe')('sk_test_51OsIjoSDjkXJPjPF1rT5ppopYqwY4mTLNpUQ7yz5L9W9rVIH14jLtaG2AnLbTzuAbASuPv8icfsmPB77mWrEiEl000Latkki6n');
 
 exports.viewAllStudents = async (req, res) => {
 	try {
@@ -41,6 +42,48 @@ exports.deleteStudent = async (req, res) => {
 			student = await Student.findByIdAndDelete(id);
 		if (!student) return res.status(404).json({ errors: ['Student not found'] });
 		res.json(student);
+	} catch (error) {
+		logger.error(error);
+		res.status(500).json({ errors: ['Internal server error'] });
+	}
+};
+
+exports.createCheckoutSession = async (req, res) => {
+	try {
+		const item = req.body;
+
+		const lineItem = {
+			price_data: {
+				currency: 'inr',
+				product_data: {
+					name: item.description
+				},
+				unit_amount: item.price * 100
+			},
+			quantity: item.quantity,
+
+		};
+
+		const customer = await stripe.customers.create({
+			name: 'Jenny Rosen',
+			address: {
+			  line1: '510 Townsend St',
+			  postal_code: '98140',
+			  city: 'San Francisco',
+			  state: 'CA',
+			  country: 'US',
+			},
+		  });
+
+		const session = await stripe.checkout.sessions.create({
+			payment_method_types: ['card'],
+			line_items: [lineItem],
+			mode: 'payment',
+			customer: customer.id,
+			success_url: `${process.env.CLIENT_URL}/profile`,
+			cancel_url: `${process.env.CLIENT_URL}/payment-failed`
+		});
+		res.json({ id: session.id });
 	} catch (error) {
 		logger.error(error);
 		res.status(500).json({ errors: ['Internal server error'] });

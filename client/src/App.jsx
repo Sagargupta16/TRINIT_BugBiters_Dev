@@ -45,6 +45,10 @@ const App = () => {
 			]
 		},
 		{
+			path: 'payment-failed',
+			element: <NotFound />
+		},
+		{
 			path: 'room/:roomId',
 			element: <Meet />
 		},
