@@ -10,6 +10,7 @@ import Tutor from "./pages/Tutor/Tutor";
 import Meet from "./pages/VideoCall/Meet";
 import VideoCall from "./pages/VideoCall/VideoCall";
 import { checkAuthAction, getAuthToken } from "./utils/auth";
+import Flashcards from "./pages/Flashcards/Flashcards";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const App = () => {
           element: <Profile />,
           loader: checkAuthAction,
         },
+		{
+			path: 'flashcards',
+			element: <Flashcards />,
+		},
         {
           path: "auth",
           element: <Authentication />,

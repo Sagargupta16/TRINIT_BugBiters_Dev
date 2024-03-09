@@ -8,6 +8,7 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { checkToken } from "../../api/tokenCheckApi";
 import Modal from "../Modal/Modal";
 import classes from "./Navbar.module.css";
+import { TbCards } from "react-icons/tb";
 
 const NavBar = () => {
   const [navItems, setNavItems] = useState([]);
@@ -60,6 +61,11 @@ const NavBar = () => {
           to: "tutor",
           label: "Tutor",
           icon: <MdClass />,
+        },
+        {
+          to: "flashcards",
+          label: "Flashcards",
+          icon: <TbCards />,
         },
       ]);
     } else if (isAuthenticated && role === "tutor") {
