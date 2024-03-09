@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const prodUrl = 'https://api.example.com';
+const prodUrl = 'https://trinit-bugbiters-dev.onrender.com';
 const devUrl = 'http://localhost:5000';
 
 const axiosInstance = axios.create({
