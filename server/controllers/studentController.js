@@ -1,7 +1,7 @@
 const Student = require("../models/Student");
 const logger = require("../utils/logger");
 const stripe = require("stripe")(
-  "sk_test_51OsIjoSDjkXJPjPF1rT5ppopYqwY4mTLNpUQ7yz5L9W9rVIH14jLtaG2AnLbTzuAbASuPv8icfsmPB77mWrEiEl000Latkki6n"
+  "sk_test_51OsIjoSDjkXJPjPF1rT5ppopYqwY4mTLNpUQ7yz5L9W9rVIH14jLtaG2AnLbTzuAbASuPv8icfsmPB77mWrEiEl000Latkki6n",
 );
 const Class = require("../models/Class");
 
@@ -102,7 +102,7 @@ exports.createCheckoutSession = async (req, res) => {
 exports.addClass = async (req, res) => {
   try {
     const { id } = req.params,
-    student = await Student.findById(id);
+      student = await Student.findById(id);
     if (!student)
       return res.status(404).json({ errors: ["Student not found"] });
     student.classes.push(req.body);

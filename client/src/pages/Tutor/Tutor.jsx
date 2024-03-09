@@ -11,58 +11,59 @@ import TutorModal from "./TutorModal";
 
 const Tutor = () => {
   const randomNames = [
-  	'Alice',
-  	'Bob',
-  	'Charlie',
-  	'David',
-  	'Emma',
-  	'Frank',
-  	'Grace',
-  	'Henry',
-  	'Ivy',
-  	'Jack',
-  	'Katie',
-  	'Liam',
-  	'Mia',
-  	'Noah',
-  	'Olivia',
-  	'Peter',
-  	'Quinn',
-  	'Rachel',
-  	'Sam',
-  	'Taylor',
-  	'Uma',
-  	'Victor',
-  	'Wendy',
-  	'Xander',
-  	'Yasmine',
-  	'Zack'
+    "Alice",
+    "Bob",
+    "Charlie",
+    "David",
+    "Emma",
+    "Frank",
+    "Grace",
+    "Henry",
+    "Ivy",
+    "Jack",
+    "Katie",
+    "Liam",
+    "Mia",
+    "Noah",
+    "Olivia",
+    "Peter",
+    "Quinn",
+    "Rachel",
+    "Sam",
+    "Taylor",
+    "Uma",
+    "Victor",
+    "Wendy",
+    "Xander",
+    "Yasmine",
+    "Zack",
   ];
   const randomLanguages = [
-  	'English',
-  	'Spanish',
-  	'French',
-  	'German',
-  	'Italian',
-  	'Chinese',
-  	'Japanese',
-  	'Russian',
-  	'Arabic',
-  	'Portuguese',
-  	'Korean',
-  	'Dutch'
+    "English",
+    "Spanish",
+    "French",
+    "German",
+    "Italian",
+    "Chinese",
+    "Japanese",
+    "Russian",
+    "Arabic",
+    "Portuguese",
+    "Korean",
+    "Dutch",
   ];
 
   // Generate random name
   function generateRandomName() {
-  	return randomNames[Math.floor(Math.random() * randomNames.length)];
+    return randomNames[Math.floor(Math.random() * randomNames.length)];
   }
 
   // Generate random list of languages
   function generateRandomLanguages() {
-  	const numLanguages = Math.floor(Math.random() * (randomLanguages.length - 1)) + 1; // Random number of languages between 1 and the length of randomLanguages
-  	const shuffledLanguages = randomLanguages.sort(() => Math.random() - 0.5); // Shuffle the languages array
-  	return shuffledLanguages.slice(0, numLanguages); // Return a slice of shuffled languages array
+    const numLanguages =
+      Math.floor(Math.random() * (randomLanguages.length - 1)) + 1; // Random number of languages between 1 and the length of randomLanguages
+    const shuffledLanguages = randomLanguages.sort(() => Math.random() - 0.5); // Shuffle the languages array
+    return shuffledLanguages.slice(0, numLanguages); // Return a slice of shuffled languages array
   }
 
   const [tutors, setTutors] = useState([]);
@@ -85,13 +86,13 @@ const Tutor = () => {
   }, []);
 
   for (let i = 1; i <= 20; i++) {
-  	tutors.push({
-  		image: `https://via.placeholder.com/100?text=Tutor${i}`,
-  		name: generateRandomName(),
-  		languages: generateRandomLanguages(),
-  		yearsOfExperience: Math.floor(Math.random() * 10) + 1, // Random experience between 1 and 10
-  		rating: Math.floor(Math.random() * 5) + 1 // Random rating between 1 and 5
-  	});
+    tutors.push({
+      image: `https://via.placeholder.com/100?text=Tutor${i}`,
+      name: generateRandomName(),
+      languages: generateRandomLanguages(),
+      yearsOfExperience: Math.floor(Math.random() * 10) + 1, // Random experience between 1 and 10
+      rating: Math.floor(Math.random() * 5) + 1, // Random rating between 1 and 5
+    });
   }
 
   useEffect(() => {
@@ -155,7 +156,7 @@ const Tutor = () => {
   };
 
   const checkExperience = (value) => {
-    if (experience.length===0) return true;
+    if (experience.length === 0) return true;
     if (experience.includes(10)) return value >= 10;
     else if (experience.includes(5)) return value >= 5;
     else if (experience.includes(3)) return value >= 3;
@@ -178,24 +179,23 @@ const Tutor = () => {
   };
 
   const optionClickHandler = (head, value) => {
-      const element = document.getElementById(`${head.toLowerCase()}-${value}`);
-		  element.classList.add('active');
+    const element = document.getElementById(`${head.toLowerCase()}-${value}`);
+    element.classList.add("active");
 
-      const stateUpdater = {
-        Language: setLanguage,
-        Experience: setExperience,
-        Price: setPrice,
+    const stateUpdater = {
+      Language: setLanguage,
+      Experience: setExperience,
+      Price: setPrice,
+    };
+
+    stateUpdater[head]((prevState) => {
+      const isValueIncluded = prevState.includes(value);
+      if (isValueIncluded) {
+        element.classList.remove("active");
+        return prevState.filter((option) => option !== value);
       }
-
-      stateUpdater[head]((prevState) => {
-        const isValueIncluded = prevState.includes(value);
-        if (isValueIncluded) {
-          element.classList.remove('active');
-          return prevState.filter((option) => option !== value);
-        }
-        return [...prevState, value];
-      });
-      
+      return [...prevState, value];
+    });
   };
 
   const leftComponent = (
@@ -209,7 +209,7 @@ const Tutor = () => {
   };
 
   const filteredTutors = allTutors.filter((tutor) =>
-    tutor.name.toLowerCase().includes(searchTerm.toLowerCase())
+    tutor.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   const rightComponent = (
