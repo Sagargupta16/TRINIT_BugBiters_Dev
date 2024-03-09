@@ -1,3 +1,4 @@
+import { jwtDecode } from 'jwt-decode';
 import { useEffect, useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
 import { FaHome, FaSignInAlt, FaVideo } from 'react-icons/fa';
@@ -13,13 +14,17 @@ const NavBar = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const navigate = useNavigate();
 	const token = localStorage.getItem('token');
+	const [role, setRole] = useState('');
 
 	useEffect(() => {
 		if (token) {
 			try {
 				checkToken().then((response) => {
-					if (response.data.isAuthenticated) setIsAuthenticated(true);
-					else setIsAuthenticated(false);
+					if (response.data.isAuthenticated) {
+						setIsAuthenticated(true);
+						setRole(jwtDecode(token).role);
+						console.log(jwtDecode(token).role);
+					} else setIsAuthenticated(false);
 				});
 			} catch (error) {
 				localStorage.removeItem('token');
@@ -38,7 +43,27 @@ const NavBar = () => {
 			}
 		];
 
-		if (isAuthenticated) {
+		if (isAuthenticated && role === 'student') {
+			setNavItems([
+				...fixedItems,
+				{
+					to: 'profile',
+					label: 'Profile',
+					icon: <CgProfile />
+				},
+				{
+					to: 'VideoCall',
+					label: 'Video Call',
+					icon: <FaVideo />
+				},
+				{
+					to: 'tutor',
+					label: 'Tutor',
+					icon: <CgProfile />
+				}
+			]);
+		} 
+		else if (isAuthenticated && role === 'tutor') {
 			setNavItems([
 				...fixedItems,
 				{
@@ -52,7 +77,8 @@ const NavBar = () => {
 					icon: <FaVideo />
 				}
 			]);
-		} else {
+		}
+		else {
 			setNavItems([
 				...fixedItems,
 				{
@@ -62,7 +88,7 @@ const NavBar = () => {
 				}
 			]);
 		}
-	}, [isAuthenticated]);
+	}, [isAuthenticated , role]);
 
 	const onSignOutClick = () => {
 		setIsModalOpen(true);

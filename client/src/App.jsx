@@ -6,6 +6,7 @@ import NotFound from './components/NotFound/NotFound';
 import Authentication from './pages/Auth/Authentication';
 import Home from './pages/Home/Home';
 import Profile from './pages/Profile/Profile';
+import Tutor from './pages/Tutor/Tutor';
 import Meet from './pages/VideoCall/Meet';
 import VideoCall from './pages/VideoCall/VideoCall';
 import { checkAuthAction, getAuthToken } from './utils/auth';
@@ -23,13 +24,18 @@ const App = () => {
 					element: <Home />
 				},
 				{
-					path: 'profile',
-					element: <Profile />,
+					path: 'tutor',
+					element: <Tutor />,
 					loader: checkAuthAction
 				},
 				{
 					path: 'VideoCall',
 					element: <VideoCall />,
+					loader: checkAuthAction
+				},
+				{
+					path: 'profile',
+					element: <Profile />,
 					loader: checkAuthAction
 				},
 				{

@@ -24,7 +24,7 @@ exports.postSignup = async (req, res) => {
 			});
 		}
 
-		if(user.role !== 'tutor' && user.role !== 'student') return res.status(400).json({ errors: ['Invalid role'] });
+		if (user.role !== 'tutor' && user.role !== 'student') return res.status(400).json({ errors: ['Invalid role'] });
 
 		const hashedPassword = await bcrypt.hash(user.password, Number(process.env.JWT_SALT_ROUNDS));
 		user.password = hashedPassword;
