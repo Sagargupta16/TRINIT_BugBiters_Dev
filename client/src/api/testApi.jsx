@@ -4,7 +4,7 @@ export const getTests = () => axiosInstance.get("/test/view");
 
 export const getTest = (id) => axiosInstance.get(`/test/view/${id}`);
 
-export const createTest = (test) => axiosInstance.post("/test/create", test);
+export const createTest = (test) => axiosInstance.post("/test/create/", test);
 
 export const updateTest = (id, test) =>
   axiosInstance.put(`/test/update/${id}`, test);

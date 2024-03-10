@@ -5,6 +5,7 @@ import { deleteSlot, getTutor } from "../../api/tutorApi";
 import Structure from "../../components/Structure/Structure";
 import "./Profile.css";
 import SlotModal from "./SlotModal";
+import TestModal from "./TestModal";
 
 import { useNavigate } from "react-router-dom";
 
@@ -24,12 +25,7 @@ const Profile = () => {
         decodedToken.role === "student"
           ? await getStudent(id)
           : await getTutor(id);
-      // response.data.classes.map(async(course) => {
-      // 	return course = await getClass(course);
-      // }
-      // );
       setUser(response.data);
-      console.log(response.data);
     };
 
     fetchUser();
@@ -41,6 +37,8 @@ const Profile = () => {
       window.location.reload();
     }
   };
+
+  const [testModal, setTestModal] = useState(false);
 
   const leftComponent = (
     <div className="profile">
@@ -65,9 +63,14 @@ const Profile = () => {
               return <p key={index}>{language}</p>;
             })}
           </div>
+          <div className="buttons">
           <button className="btn" onClick={() => setShowModal(true)}>
             Add Slot
           </button>
+          <button className="btn" onClick={() => setTestModal(true)}>
+            Add Test
+          </button>
+        </div>
         </>
       ) : null}
     </div>
@@ -167,6 +170,12 @@ const Profile = () => {
       <SlotModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
+        id={user._id}
+        languages={user.languages}
+      />
+      <TestModal
+        isOpen={testModal}
+        onClose={() => setTestModal(false)}
         id={user._id}
         languages={user.languages}
       />

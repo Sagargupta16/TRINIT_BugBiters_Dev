@@ -4,7 +4,7 @@ import "./Filter.css";
 const Filter = ({ Allptions, optionClickHandler }) => {
   const optionsRenderer = (head, options) => {
     return (
-      <div className="filter__item">
+      <div key={head} className="filter__item">
         <div className="filter__item__label">{head}</div>
         <div className="filter__item__values">
           {options.map((option) => (
@@ -21,6 +21,7 @@ const Filter = ({ Allptions, optionClickHandler }) => {
       </div>
     );
   };
+  
   return (
     <div className="filter">
       <h3>Filters</h3>

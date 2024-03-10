@@ -25,13 +25,14 @@ exports.viewSingleTest = async (req, res) => {
 
 exports.createTest = async (req, res) => {
   try {
-    const test = await Test.create(req.body);
+    const test = new Test(req.body);
+    await test.save();
     res.json(test);
   } catch (error) {
     logger.error(error);
     res.status(500).json({ errors: ["Internal server error"] });
   }
-};
+}
 
 exports.updateTest = async (req, res) => {
   try {
