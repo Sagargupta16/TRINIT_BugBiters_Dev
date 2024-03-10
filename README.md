@@ -1,4 +1,4 @@
-# Ligua Connect
+# Lingua Connect
 
 This Project is a MERN stack application that is designed to help students and professionals to connect with each other and share their experiences
 and knowledge. The application will allow users to create an account, log in, and create posts to share their experiences and knowledge with others.
