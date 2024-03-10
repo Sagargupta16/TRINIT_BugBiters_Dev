@@ -12,7 +12,7 @@ router.get(
   "/view",
   authenticateUser,
   checkUserRole(["student"]),
-  flashcardController.viewAllFlashcards
+  flashcardController.viewAllFlashcards,
 );
 
 // View a single Flashcard by ID with rate limiting
@@ -20,7 +20,7 @@ router.get(
   "/view/:id",
   authenticateUser,
   checkUserRole(["student"]),
-  flashcardController.viewSingleFlashcard
+  flashcardController.viewSingleFlashcard,
 );
 
 // Create a Flashcard with rate limiting
@@ -29,7 +29,7 @@ router.post(
   authenticateUser,
   checkUserRole(["student"]),
   limiter,
-  flashcardController.createFlashcard
+  flashcardController.createFlashcard,
 );
 
 // Update a Flashcard with rate limiting
@@ -38,7 +38,7 @@ router.put(
   authenticateUser,
   checkUserRole(["student"]),
   limiter,
-  flashcardController.updateFlashcard
+  flashcardController.updateFlashcard,
 );
 
 // Delete a Flashcard with rate limiting
@@ -47,7 +47,7 @@ router.delete(
   authenticateUser,
   checkUserRole(["student"]),
   limiter,
-  flashcardController.deleteFlashcard
+  flashcardController.deleteFlashcard,
 );
 
 // Get a flashcard according to language
@@ -56,7 +56,7 @@ router.post(
   authenticateUser,
   checkUserRole(["student"]),
   limiter,
-  flashcardController.getFlashCardsByLanguage
+  flashcardController.getFlashCardsByLanguage,
 );
 
 router.post(
@@ -64,7 +64,7 @@ router.post(
   authenticateUser,
   checkUserRole(["student"]),
   limiter,
-  flashcardController.createFlashcard
+  flashcardController.createFlashcard,
 );
 
 module.exports = router;

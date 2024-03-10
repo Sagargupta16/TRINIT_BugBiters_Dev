@@ -21,7 +21,7 @@ const Filter = ({ Allptions, optionClickHandler }) => {
       </div>
     );
   };
-  
+
   return (
     <div className="filter">
       <h3>Filters</h3>

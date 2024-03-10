@@ -96,7 +96,7 @@ const Profile = () => {
                   <span>
                     {new Date(course.startTime).toLocaleTimeString(
                       navigator.language,
-                      { hour: "2-digit", minute: "2-digit" }
+                      { hour: "2-digit", minute: "2-digit" },
                     )}
                   </span>
                   <p>₹{course.price}</p>

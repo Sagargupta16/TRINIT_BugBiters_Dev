@@ -108,7 +108,8 @@ const TutorModal = ({ isOpen, onClose, tutor, user }) => {
                             <div className="slot__actions">
                               <button
                                 className="btn"
-                                onClick={() => onhandleBook("slot", slot)}>
+                                onClick={() => onhandleBook("slot", slot)}
+                              >
                                 Book
                               </button>
                             </div>

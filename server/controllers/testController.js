@@ -32,7 +32,7 @@ exports.createTest = async (req, res) => {
     logger.error(error);
     res.status(500).json({ errors: ["Internal server error"] });
   }
-}
+};
 
 exports.updateTest = async (req, res) => {
   try {

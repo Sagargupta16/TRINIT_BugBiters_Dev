@@ -31,7 +31,8 @@ const CreateFlashcardModal = ({ isOpen, onClose }) => {
 
         <form
           className={classes["input-form"]}
-          onSubmit={flashcardSubmitHandler}>
+          onSubmit={flashcardSubmitHandler}
+        >
           <input id="input-id" type="text" placeholder="Language" required />
           <input id="input-id" type="text" placeholder="Question" required />
           <input id="input-id" type="text" placeholder="Answer" required />
@@ -43,7 +44,7 @@ const CreateFlashcardModal = ({ isOpen, onClose }) => {
         </button>
       </div>
     </div>,
-    document.getElementById("modal-root")
+    document.getElementById("modal-root"),
   );
 };
 

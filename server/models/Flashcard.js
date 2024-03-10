@@ -9,7 +9,7 @@ const flashcardSchema = new mongoose.Schema(
 
   {
     timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" },
-  }
+  },
 );
 
 const Flashcard = mongoose.model("Flashcard", flashcardSchema);
