@@ -12,6 +12,10 @@
 
 .modal {
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* shadow effect */
@@ -66,7 +70,21 @@
 
 .modal_close_btn {
   text-align: right;
-  background-color: #0056b3;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   padding: 1rem;
   border-radius: 0.4rem;
+}
+
+.logo-badge {
+  width: auto;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 1.8rem;
+  line-height: 1.3rem;
+  font-weight: 600;
+  margin-right: 0.3rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.25rem;
+  margin: auto;
 }

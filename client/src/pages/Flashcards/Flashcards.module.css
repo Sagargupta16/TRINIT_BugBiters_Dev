@@ -1,14 +1,47 @@
+.main-container {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  margin: 5.5rem 0 0 0;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow-y: scroll;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-white);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 1.5rem;
+}
+
 .flashcards-container {
-    display: flex;
-    flex-direction: row;
-    /* align-items: center;
-    justify-content: center; */
-    gap: 1rem;
-    padding: 1rem;
-    margin: 6rem;
-    background-color: var(--color-white);
-    border: 1px solid var(--color-white);
-    border-radius: 1.5rem;
-    width: 100%;
-    height: 100vh;
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: 1.5rem;
+  width: 100%;
+  height: 70vh;
+}
+
+.main-container button {
+  width: 20%;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  transition: var(--transition);
+}
+
+.main-container button:hover {
+  background-color: var(--color-primary-variant);
+  color: var(--color-white);
+  border: 1px solid var(--color-primary-variant);
 }

@@ -15,14 +15,15 @@ const Flashcards = () => {
   };
 
   return (
-    <div className={classes["flashcards-container"]}>
-      <LanguageCard
-        language="Spanish"
-        onClick={() => navigate(`/flashcards/${"Spanish"}`)}
-      />
-      <LanguageCard language="Russian" />
-      <LanguageCard language="French" />
-
+    <div className={classes["main-container"]}>
+      <div className={classes["flashcards-container"]}>
+        <LanguageCard
+          language="Spanish"
+          onClick={() => navigate(`/flashcards/${"Spanish"}`)}
+        />
+        <LanguageCard language="Russian" />
+        <LanguageCard language="French" />
+      </div>
       <button onClick={handleClickCreate}>Create Flashcard</button>
       <CreateFlashcardModal
         isOpen={isCreateModalOpen}

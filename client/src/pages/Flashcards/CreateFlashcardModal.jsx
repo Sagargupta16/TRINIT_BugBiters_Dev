@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import classes from "./FlashcardModal.module.css";
+import classes from "./CreateFlashcardModal.module.css";
 import { createFlashcardRoute } from "../../api/flashcardApi";
 const { jwtDecode } = require("jwt-decode");
 
@@ -27,14 +27,15 @@ const CreateFlashcardModal = ({ isOpen, onClose }) => {
   return ReactDOM.createPortal(
     <div className={classes.overlay}>
       <div className={classes.modal}>
-        <h2>Flashcard Create Modal</h2>
-        <p>Create Modal Content</p>
+        <span className={classes["logo-badge"]}>Create Flashcards</span>
 
-        <form onSubmit={flashcardSubmitHandler}>
-          <input type="text" placeholder="Language" required />
-          <input type="text" placeholder="Question" required />
-          <input type="text" placeholder="Answer" required />
-          <button>Create</button>
+        <form
+          className={classes["input-form"]}
+          onSubmit={flashcardSubmitHandler}>
+          <input id="input-id" type="text" placeholder="Language" required />
+          <input id="input-id" type="text" placeholder="Question" required />
+          <input id="input-id" type="text" placeholder="Answer" required />
+          <button className={classes["modal_btn"]}>Create</button>
         </form>
 
         <button className={classes["modal_close_btn"]} onClick={onClose}>
