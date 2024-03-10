@@ -64,13 +64,13 @@ const Profile = () => {
             })}
           </div>
           <div className="buttons">
-          <button className="btn" onClick={() => setShowModal(true)}>
-            Add Slot
-          </button>
-          <button className="btn" onClick={() => setTestModal(true)}>
-            Add Test
-          </button>
-        </div>
+            <button className="btn" onClick={() => setShowModal(true)}>
+              Add Slot
+            </button>
+            <button className="btn" onClick={() => setTestModal(true)}>
+              Add Test
+            </button>
+          </div>
         </>
       ) : null}
     </div>
@@ -133,7 +133,7 @@ const Profile = () => {
       </div>
       {role === "tutor" ? (
         <div className="profile-right-top">
-          <h3>Available Slots</h3>
+          <span className="logo-badge">Available Slots</span>
           <div className="upcoming-classes">
             {user.slotsAvailability && user.slotsAvailability.length !== 0 ? (
               user.slotsAvailability.map((slot, index) => {
