@@ -40,8 +40,7 @@ const FlashcardModal = ({ isOpen, onClose, language, id }) => {
   return ReactDOM.createPortal(
     <div className={classes.overlay}>
       <div className={classes.modal}>
-        <h2>Flashcard Modal</h2>
-        <p>Flashcard Modal Content</p>
+        <span className={classes["logo-badge"]}>{language} Flashcards</span>
 
         <ul className={classes["flashcards"]}>
           {flashcards.map((flashcard) => (
