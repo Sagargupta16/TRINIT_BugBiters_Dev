@@ -39,10 +39,10 @@ const App = () => {
           element: <Profile />,
           loader: checkAuthAction,
         },
-		{
-			path: 'flashcards',
-			element: <Flashcards />,
-		},
+        {
+          path: "flashcards",
+          element: <Flashcards />,
+        },
         {
           path: "auth",
           element: <Authentication />,

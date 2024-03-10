@@ -52,7 +52,7 @@ const FlashcardModal = ({ isOpen, onClose, language, id }) => {
         </button>
       </div>
     </div>,
-    document.getElementById("modal-root")
+    document.getElementById("modal-root"),
   );
 };
 

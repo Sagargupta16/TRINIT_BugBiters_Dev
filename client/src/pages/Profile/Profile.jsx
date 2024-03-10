@@ -64,13 +64,13 @@ const Profile = () => {
             })}
           </div>
           <div className="buttons">
-          <button className="btn" onClick={() => setShowModal(true)}>
-            Add Slot
-          </button>
-          <button className="btn" onClick={() => setTestModal(true)}>
-            Add Test
-          </button>
-        </div>
+            <button className="btn" onClick={() => setShowModal(true)}>
+              Add Slot
+            </button>
+            <button className="btn" onClick={() => setTestModal(true)}>
+              Add Test
+            </button>
+          </div>
         </>
       ) : null}
     </div>
@@ -96,7 +96,7 @@ const Profile = () => {
                   <span>
                     {new Date(course.startTime).toLocaleTimeString(
                       navigator.language,
-                      { hour: "2-digit", minute: "2-digit" }
+                      { hour: "2-digit", minute: "2-digit" },
                     )}
                   </span>
                   <p>₹{course.price}</p>

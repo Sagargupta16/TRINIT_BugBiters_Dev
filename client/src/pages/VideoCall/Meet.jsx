@@ -24,6 +24,6 @@ const Meet = () => {
       class: classes.zegoContainer,
     });
   };
-  return <div ref={myMeeting} className={classes.zegoContainer} />
+  return <div ref={myMeeting} className={classes.zegoContainer} />;
 };
 export default Meet;

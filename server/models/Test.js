@@ -6,9 +6,9 @@ const testSchema = new mongoose.Schema(
     level: { type: String, required: true },
     questions: [
       {
-        question: { type: String},
-        answer: { type: String},
-      }
+        question: { type: String },
+        answer: { type: String },
+      },
     ],
   },
   {
