@@ -102,20 +102,7 @@ Make sure you have the following installed on your machine:
 
 1. Creating your branch:
 
-   I. For Organization Members:
-
-   - **Branch Creation:** As an organization member, when working on a new feature or task, you should create a new branch from the "develop" branch.
-     The branch name should be in the format `feature-` where `<description>` represents a short description of the task or feature you are working
-     on. For example, if you are adding a login feature, the branch name could be `feature-login`.
-   - **Code Implementation:** Implement the necessary changes and new features on your created branch. Make sure to adhere to the organization's
-     coding standards and best practices.
-   - **Code Testing:** Thoroughly test your changes on the branch to ensure that they work as expected and do not introduce any bugs or issues.
-   - **Code Review:** If required by the organization's development process, request a code review from your peers to ensure code quality and
-     adherence to project guidelines.
-   - **Pull Request Creation:** Once you are confident that your code is complete and tested, create a pull request to merge your changes from the
-     `feature-*` branch into the `develop` branch. Clearly explain the purpose and scope of the changes in the pull request description.
-
-   II. For External Contributors:
+   I. For Contributors:
 
    - **Forking the Repository:** If you are an external contributor, you should fork the repository to your GitHub account. This will create a copy of
      the repository under your account, which you can use to make changes and submit pull requests.
@@ -176,21 +163,13 @@ If you would like to contribute to the project, please read the [CONTRIBUTING.md
 
 This project is licensed under the [MIT License](LICENSE).
 
-## Contact
-
-If you have any questions or need further assistance, please feel free to contact us.
-
-## Project Status
-
-The project is currently under development. The initial version of the project is expected to be released soon.
-
 ## Project Team
 
 The project team consists of the following members:
 
 - [Sagar Gupta](https://github.com/Sagargupta16 "Sagar Gupta")
-- [Sachin Gupta]('Sachin Gupta')
-- [Rahul Raj]('Rahul Raj')
+- [Sachin Gupta](https://github.com/sachin-gupta99 'Sachin Gupta')
+- [Rahul Raj](https://github.com/DexTerMtor-Rahul 'Rahul Raj')
 
 ## References
 
@@ -210,3 +189,5 @@ The project team consists of the following members:
 - [Nodemon](https://www.npmjs.com/package/nodemon "Nodemon")
 - [Concurrently](https://www.npmjs.com/package/concurrently "Concurrently")
 - [Prettier](https://prettier.io/ "Prettier")
+
+Deployed Here : https://trinit-bugbiters-dev.onrender.com
