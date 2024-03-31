@@ -1,7 +1,7 @@
 const Student = require("../models/Student");
 const logger = require("../utils/logger");
 const stripe = require("stripe")(
-  "sk_test_51OsIjoSDjkXJPjPF1rT5ppopYqwY4mTLNpUQ7yz5L9W9rVIH14jLtaG2AnLbTzuAbASuPv8icfsmPB77mWrEiEl000Latkki6n",
+  process.env.STRIPE_SECRET_KEY
 );
 const Class = require("../models/Class");
 

@@ -1,6 +1,6 @@
 import { loadStripe } from "@stripe/stripe-js";
 const stripe = await loadStripe(
-  "pk_test_51OsIjoSDjkXJPjPFyeTkSbLIBKPzUUlaF2VDPoYG5ORqgg2t7om9MD3vjPUGCXn1Khap8NBc1ZhazAVitBlGSBcN00rntAB9vC",
+  process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY,
 );
 
 const Stripe = async ({ price, description }) => {
