@@ -8,7 +8,7 @@
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.0.0",
-    "@zegocloud/zego-uikit-prebuilt": "^1.11.0",
+    "@zegocloud/zego-uikit-prebuilt": "^2.0.0",
     "axios": "^1.6.5",
     "classnames": "^2.5.1",
     "jwt-decode": "^4.0.0",
