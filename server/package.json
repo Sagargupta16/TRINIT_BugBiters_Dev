@@ -21,7 +21,7 @@
     "express-rate-limit": "^7.1.5",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.3",
-    "nodemailer": "^6.9.8",
+    "nodemailer": "^7.0.0",
     "stripe": "^16.0.0",
     "uuid": "^10.0.0",
     "winston": "^3.11.0"
