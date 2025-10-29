@@ -1,0 +1,510 @@
+{
+  "info": {
+    "name": "Phone Directory API",
+    "description": "Complete API collection for Phone Directory Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000/api",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        },
+        "description": "Check if API is running"
+      }
+    },
+    {
+      "name": "User Management",
+      "item": [
+        {
+          "name": "Signup",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {",
+                  "    const response = pm.response.json();",
+                  "    pm.collectionVariables.set('token', response.data.token);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"phoneNumber\": \"1234567890\",\n  \"password\": \"Password123\",\n  \"email\": \"john.doe@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user/signup",
+              "host": ["{{baseUrl}}"],
+              "path": ["user", "signup"]
+            },
+            "description": "Register a new user"
+          }
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "    const response = pm.response.json();",
+                  "    pm.collectionVariables.set('token', response.data.token);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phoneNumber\": \"1234567890\",\n  \"password\": \"Password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/user/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["user", "login"]
+            },
+            "description": "Login existing user or create new account"
+          }
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user/profile",
+              "host": ["{{baseUrl}}"],
+              "path": ["user", "profile"]
+            },
+            "description": "Get current user profile"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Contact Management",
+      "item": [
+        {
+          "name": "Create Contact",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Smith\",\n  \"phoneNumber\": \"9876543210\",\n  \"email\": \"jane.smith@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/contact",
+              "host": ["{{baseUrl}}"],
+              "path": ["contact"]
+            },
+            "description": "Create a new contact"
+          }
+        },
+        {
+          "name": "Get Contacts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/contact?page=1&limit=20",
+              "host": ["{{baseUrl}}"],
+              "path": ["contact"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            },
+            "description": "Get all contacts with pagination"
+          }
+        },
+        {
+          "name": "Delete Contact",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/contact/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["contact", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "contact-uuid-here"
+                }
+              ]
+            },
+            "description": "Delete a contact by ID"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Spam Reporting",
+      "item": [
+        {
+          "name": "Report Spam",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phoneNumber\": \"5551234567\",\n  \"reason\": \"Telemarketing calls\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/spam",
+              "host": ["{{baseUrl}}"],
+              "path": ["spam"]
+            },
+            "description": "Report a phone number as spam"
+          }
+        },
+        {
+          "name": "Get Spam Stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/spam/stats/:phoneNumber",
+              "host": ["{{baseUrl}}"],
+              "path": ["spam", "stats", ":phoneNumber"],
+              "variable": [
+                {
+                  "key": "phoneNumber",
+                  "value": "5551234567"
+                }
+              ]
+            },
+            "description": "Get spam statistics for a phone number"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "item": [
+        {
+          "name": "Search by Name",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/search?q=John&page=1&limit=20",
+              "host": ["{{baseUrl}}"],
+              "path": ["search"],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "John"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            },
+            "description": "Search by name with fuzzy matching"
+          }
+        },
+        {
+          "name": "Search by Phone",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/search?q=1234567890",
+              "host": ["{{baseUrl}}"],
+              "path": ["search"],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "1234567890"
+                }
+              ]
+            },
+            "description": "Search by exact phone number"
+          }
+        },
+        {
+          "name": "Get Detail",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/search/detail/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["search", "detail", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "user-or-contact-uuid"
+                }
+              ]
+            },
+            "description": "Get detailed information for a user or contact"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Recent Interactions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/dashboard/interactions/recent?page=1&limit=20&type=call",
+              "host": ["{{baseUrl}}"],
+              "path": ["dashboard", "interactions", "recent"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "type",
+                  "value": "call",
+                  "description": "Optional: call, message, or spam_report"
+                }
+              ]
+            },
+            "description": "Get recent interactions"
+          }
+        },
+        {
+          "name": "Top Contacts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/dashboard/contacts/top?limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["dashboard", "contacts", "top"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Get most frequently contacted users"
+          }
+        },
+        {
+          "name": "Spam Reports Analytics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/dashboard/spam/reports?startDate=2025-10-01&endDate=2025-10-29",
+              "host": ["{{baseUrl}}"],
+              "path": ["dashboard", "spam", "reports"],
+              "query": [
+                {
+                  "key": "startDate",
+                  "value": "2025-10-01"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2025-10-29"
+                }
+              ]
+            },
+            "description": "Get spam report statistics"
+          }
+        },
+        {
+          "name": "Statistics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/dashboard/statistics",
+              "host": ["{{baseUrl}}"],
+              "path": ["dashboard", "statistics"]
+            },
+            "description": "Get overall user statistics"
+          }
+        },
+        {
+          "name": "Create Interaction - Call",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receiverPhoneNumber\": \"9876543210\",\n  \"type\": \"call\",\n  \"metadata\": {\n    \"duration\": 120\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/dashboard/interaction",
+              "host": ["{{baseUrl}}"],
+              "path": ["dashboard", "interaction"]
+            },
+            "description": "Record a call interaction"
+          }
+        },
+        {
+          "name": "Create Interaction - Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receiverPhoneNumber\": \"9876543210\",\n  \"type\": \"message\",\n  \"metadata\": {\n    \"content\": \"Hello, how are you?\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/dashboard/interaction",
+              "host": ["{{baseUrl}}"],
+              "path": ["dashboard", "interaction"]
+            },
+            "description": "Record a message interaction"
+          }
+        }
+      ]
+    }
+  ]
+}
