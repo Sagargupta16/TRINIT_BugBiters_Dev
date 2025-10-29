@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const logger = require("../utils/logger");
 const Student = require("../models/Student");
 const Tutor = require("../models/Tutor");
+const User = require("../models/User");
 
 const authenticateUser = async (req, res, next) => {
   try {
@@ -15,6 +16,7 @@ const authenticateUser = async (req, res, next) => {
     let user;
     try {
       user =
+        (await User.findOne({ _id: decoded.id })) ||
         (await Student.findOne({ _id: decoded.id })) ||
         (await Tutor.findOne({ _id: decoded.id }));
     } catch (error) {
@@ -26,7 +28,8 @@ const authenticateUser = async (req, res, next) => {
 
     req.token = token;
     req.user = user;
-    logger.info(`User ${user.email} authenticated`);
+    const identifier = user.phoneNumber || user.email;
+    logger.info(`User ${identifier} authenticated`);
     next();
   } catch (error) {
     logger.error(error.message);
