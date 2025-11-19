@@ -22,7 +22,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.3",
     "nodemailer": "^7.0.0",
-    "stripe": "^19.0.0",
+    "stripe": "^20.0.0",
     "uuid": "^13.0.0",
     "winston": "^3.11.0"
   }
