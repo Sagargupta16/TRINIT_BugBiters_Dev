@@ -11,9 +11,11 @@
 
 ## [1.0.0] - 2024-03-08
 
-- Initial release: Lingua Connect language learning marketplace
+- TRINIT Hackathon: Lingua Connect language learning marketplace
 - MERN stack with Redux Toolkit state management
 - Video calling via Zego Cloud UIKit
-- Stripe payment integration
+- Stripe payment integration with checkout sessions
 - Tutor search, scheduling, flashcards, tests
-- JWT + bcrypt authentication with role-based access
+- JWT + bcrypt authentication with role-based access (Student/Tutor)
+- Student and Tutor models with profile pages
+- OTP email verification via Nodemailer
