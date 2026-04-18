@@ -128,3 +128,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Added for consistency
+.env.*.local
+.DS_Store
+Thumbs.db
+dist/
+.next/
